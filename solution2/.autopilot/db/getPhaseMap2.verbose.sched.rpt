@@ -1,0 +1,1836 @@
+
+
+================================================================
+== Vitis HLS Report for 'getPhaseMap2'
+================================================================
+* Date:           Thu Nov  4 17:10:21 2021
+
+* Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:45 MST 2020)
+* Project:        getPhaseMap2
+* Solution:       solution2 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  8.00 ns|  7.000 ns|     1.00 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+-----------+---------+---------+---------+
+    |  Latency (cycles) |  Latency (absolute)  |      Interval     | Pipeline|
+    |   min   |   max   |    min   |    max    |   min   |   max   |   Type  |
+    +---------+---------+----------+-----------+---------+---------+---------+
+    |  1228863|  1382529|  9.831 ms|  11.060 ms|  1228864|  1382530|     none|
+    +---------+---------+----------+-----------+---------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- L0      |   307200|   307200|         2|          1|          1|  307200|       yes|
+        |- L1      |   307202|   307202|         4|          1|          1|  307200|       yes|
+        |- L2      |   307200|   307200|         2|          1|          1|  307200|       yes|
+        |- L3      |   307225|   307225|        27|          1|          1|  307200|       yes|
+        |- L4      |   153654|   153654|        56|          1|          1|  153600|       yes|
+        |- L5      |   153603|   153603|         4|          1|          1|  153600|       yes|
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+  * Pipeline-1: initiation interval (II) = 1, depth = 4
+  * Pipeline-2: initiation interval (II) = 1, depth = 2
+  * Pipeline-3: initiation interval (II) = 1, depth = 27
+  * Pipeline-4: initiation interval (II) = 1, depth = 4
+  * Pipeline-5: initiation interval (II) = 1, depth = 56
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 151
+* Pipeline : 6
+  Pipeline-0 : II = 1, D = 2, States = { 4 5 }
+  Pipeline-1 : II = 1, D = 4, States = { 13 14 15 16 }
+  Pipeline-2 : II = 1, D = 2, States = { 22 23 }
+  Pipeline-3 : II = 1, D = 27, States = { 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 }
+  Pipeline-4 : II = 1, D = 4, States = { 75 76 77 78 }
+  Pipeline-5 : II = 1, D = 56, States = { 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 6 5 
+5 --> 4 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 17 16 
+16 --> 13 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 24 23 
+23 --> 22 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 63 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 36 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 84 68 151 
+68 --> 69 
+69 --> 70 
+70 --> 71 
+71 --> 72 
+72 --> 73 
+73 --> 74 
+74 --> 75 
+75 --> 76 
+76 --> 77 
+77 --> 78 
+78 --> 79 75 
+79 --> 80 
+80 --> 81 
+81 --> 82 
+82 --> 83 
+83 --> 151 
+84 --> 85 
+85 --> 86 
+86 --> 87 
+87 --> 88 
+88 --> 89 
+89 --> 90 
+90 --> 91 
+91 --> 92 
+92 --> 93 
+93 --> 94 
+94 --> 95 
+95 --> 96 
+96 --> 97 
+97 --> 98 
+98 --> 99 
+99 --> 100 
+100 --> 101 
+101 --> 102 
+102 --> 103 
+103 --> 104 
+104 --> 105 
+105 --> 106 
+106 --> 107 
+107 --> 108 
+108 --> 109 
+109 --> 110 
+110 --> 111 
+111 --> 112 
+112 --> 113 
+113 --> 114 
+114 --> 115 
+115 --> 116 
+116 --> 117 
+117 --> 118 
+118 --> 119 
+119 --> 120 
+120 --> 121 
+121 --> 122 
+122 --> 123 
+123 --> 124 
+124 --> 125 
+125 --> 126 
+126 --> 127 
+127 --> 128 
+128 --> 129 
+129 --> 130 
+130 --> 131 
+131 --> 132 
+132 --> 133 
+133 --> 134 
+134 --> 135 
+135 --> 136 
+136 --> 137 
+137 --> 138 
+138 --> 139 
+139 --> 140 
+140 --> 141 
+141 --> 147 142 
+142 --> 143 
+143 --> 144 
+144 --> 145 
+145 --> 146 
+146 --> 91 
+147 --> 148 
+148 --> 149 
+149 --> 150 
+150 --> 151 
+151 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.00>
+ST_1 : Operation 152 [2/2] (1.00ns)   --->   "%port1_offset_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %port1_offset"   --->   Operation 152 'read' 'port1_offset_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 114 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 153 [2/2] (1.00ns)   --->   "%port0_offset_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %port0_offset"   --->   Operation 153 'read' 'port0_offset_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 114 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 154 [2/2] (1.00ns)   --->   "%regCtrl_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %regCtrl"   --->   Operation 154 'read' 'regCtrl_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 114 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+
+State 2 <SV = 1> <Delay = 1.00>
+ST_2 : Operation 155 [1/2] (1.00ns)   --->   "%port1_offset_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %port1_offset"   --->   Operation 155 'read' 'port1_offset_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 114 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_2 : Operation 156 [1/2] (1.00ns)   --->   "%port0_offset_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %port0_offset"   --->   Operation 156 'read' 'port0_offset_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 114 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_2 : Operation 157 [1/2] (1.00ns)   --->   "%regCtrl_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %regCtrl"   --->   Operation 157 'read' 'regCtrl_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 114 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_2 : Operation 158 [1/1] (0.00ns)   --->   "%mode = trunc i32 %regCtrl_read"   --->   Operation 158 'trunc' 'mode' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 159 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %port1_offset_read, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 159 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 7.00>
+ST_3 : Operation 160 [1/1] (0.00ns)   --->   "%spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_13"   --->   Operation 160 'spectopmodule' 'spectopmodule_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 161 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %port0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 1536000, void @empty_1, void @empty_2, void @empty_0, i32 16, i32 16, i32 32, i32 32, void @empty_0, void @empty_0"   --->   Operation 161 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 162 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %port0"   --->   Operation 162 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 163 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %port1, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 1536000, void @empty_3, void @empty_2, void @empty_0, i32 16, i32 16, i32 32, i32 32, void @empty_0, void @empty_0"   --->   Operation 163 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 164 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %port1"   --->   Operation 164 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 165 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %regCtrl"   --->   Operation 165 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 166 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %regCtrl, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_5, void @empty_6, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 166 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 167 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %regCtrl, void @empty_7, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 167 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 168 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %dcs_in, void @empty_8, i32 1, i32 1, void @empty_9, i32 0, i32 1228800, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 168 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 169 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %dcs_in"   --->   Operation 169 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 170 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %port0_offset, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_5, void @empty_10, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_11"   --->   Operation 170 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 171 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %port0_offset, void @empty_7, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_11"   --->   Operation 171 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 172 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %port1_offset, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_5, void @empty_12, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_11"   --->   Operation 172 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 173 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %port1_offset, void @empty_7, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_11"   --->   Operation 173 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 174 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_5, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 174 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 175 [1/1] (0.00ns)   --->   "%sext_ln40 = sext i30 %trunc_ln" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 175 'sext' 'sext_ln40' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 176 [1/1] (0.00ns)   --->   "%port1_addr = getelementptr i32 %port1, i32 %sext_ln40" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 176 'getelementptr' 'port1_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 177 [1/1] (7.00ns)   --->   "%empty = writereq i1 @_ssdm_op_WriteReq.m_axi.p1i32, i32 %port1_addr, i32 153600" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 177 'writereq' 'empty' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_3 : Operation 178 [1/1] (1.58ns)   --->   "%br_ln40 = br void" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 178 'br' 'br_ln40' <Predicate = true> <Delay = 1.58>
+
+State 4 <SV = 3> <Delay = 2.43>
+ST_4 : Operation 179 [1/1] (0.00ns)   --->   "%i = phi i19 %add_ln40, void %.split19._crit_edge, i19 0, void" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 179 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 180 [1/1] (0.00ns)   --->   "%phi_ln329 = phi i12 %phitmp14_cast, void %.split19._crit_edge, i12 0, void"   --->   Operation 180 'phi' 'phi_ln329' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 181 [1/1] (2.16ns)   --->   "%add_ln40 = add i19 %i, i19 1" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 181 'add' 'add_ln40' <Predicate = true> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 182 [1/1] (0.00ns)   --->   "%sext_ln40_1 = sext i12 %phi_ln329" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 182 'sext' 'sext_ln40_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 183 [1/1] (2.43ns)   --->   "%icmp_ln40 = icmp_eq  i19 %i, i19 307200" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 183 'icmp' 'icmp_ln40' <Predicate = true> <Delay = 2.43> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 184 [1/1] (0.00ns)   --->   "%empty_81 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 307200, i64 307200, i64 307200"   --->   Operation 184 'speclooptripcount' 'empty_81' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 185 [1/1] (0.00ns)   --->   "%br_ln40 = br i1 %icmp_ln40, void %.split19, void" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 185 'br' 'br_ln40' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 186 [1/1] (0.00ns)   --->   "%trunc_ln40 = trunc i19 %i" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 186 'trunc' 'trunc_ln40' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+ST_4 : Operation 187 [1/1] (0.00ns)   --->   "%dcs_in_read = read i16 @_ssdm_op_Read.axis.volatile.i16P128A, i16 %dcs_in"   --->   Operation 187 'read' 'dcs_in_read' <Predicate = (!icmp_ln40)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_4 : Operation 188 [1/1] (0.00ns)   --->   "%dcs0_V = trunc i16 %dcs_in_read"   --->   Operation 188 'trunc' 'dcs0_V' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+ST_4 : Operation 189 [1/1] (0.00ns)   --->   "%br_ln329 = br i1 %trunc_ln40, void %.split19._crit_edge, void"   --->   Operation 189 'br' 'br_ln329' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+ST_4 : Operation 190 [1/1] (0.69ns)   --->   "%phitmp14_cast = select i1 %trunc_ln40, i12 0, i12 %dcs0_V" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 190 'select' 'phitmp14_cast' <Predicate = (!icmp_ln40)> <Delay = 0.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 191 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 191 'br' 'br_ln0' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 7.00>
+ST_5 : Operation 192 [1/1] (0.00ns)   --->   "%specpipeline_ln40 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 192 'specpipeline' 'specpipeline_ln40' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+ST_5 : Operation 193 [1/1] (0.00ns)   --->   "%specloopname_ln40 = specloopname void @_ssdm_op_SpecLoopName, void @empty_19" [getPhaseMap2/getPhaseMap.cpp:40]   --->   Operation 193 'specloopname' 'specloopname_ln40' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+ST_5 : Operation 194 [1/1] (0.00ns)   --->   "%tmp = bitconcatenate i28 @_ssdm_op_BitConcatenate.i28.i12.i16, i12 %dcs0_V, i16 %sext_ln40_1"   --->   Operation 194 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+ST_5 : Operation 195 [1/1] (0.00ns)   --->   "%sext_ln329 = sext i28 %tmp"   --->   Operation 195 'sext' 'sext_ln329' <Predicate = (!icmp_ln40)> <Delay = 0.00>
+ST_5 : Operation 196 [1/1] (7.00ns)   --->   "%write_ln329 = write void @_ssdm_op_Write.m_axi.p1i32, i32 %port1_addr, i32 %sext_ln329, i4 15"   --->   Operation 196 'write' 'write_ln329' <Predicate = (trunc_ln40)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 197 [1/1] (0.00ns)   --->   "%br_ln329 = br void %.split19._crit_edge"   --->   Operation 197 'br' 'br_ln329' <Predicate = (trunc_ln40)> <Delay = 0.00>
+
+State 6 <SV = 4> <Delay = 7.00>
+ST_6 : Operation 198 [5/5] (7.00ns)   --->   "%empty_82 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr" [getPhaseMap2/getPhaseMap.cpp:38]   --->   Operation 198 'writeresp' 'empty_82' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 199 [1/1] (0.00ns)   --->   "%trunc_ln1 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %port0_offset_read, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 199 'partselect' 'trunc_ln1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 200 [1/1] (0.00ns)   --->   "%sext_ln46 = sext i30 %trunc_ln1" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 200 'sext' 'sext_ln46' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 201 [1/1] (0.00ns)   --->   "%port0_addr = getelementptr i32 %port0, i32 %sext_ln46" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 201 'getelementptr' 'port0_addr' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 202 [7/7] (7.00ns)   --->   "%empty_83 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr, i32 153600" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 202 'readreq' 'empty_83' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 5> <Delay = 7.00>
+ST_7 : Operation 203 [4/5] (7.00ns)   --->   "%empty_82 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr" [getPhaseMap2/getPhaseMap.cpp:38]   --->   Operation 203 'writeresp' 'empty_82' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 204 [6/7] (7.00ns)   --->   "%empty_83 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr, i32 153600" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 204 'readreq' 'empty_83' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 6> <Delay = 7.00>
+ST_8 : Operation 205 [3/5] (7.00ns)   --->   "%empty_82 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr" [getPhaseMap2/getPhaseMap.cpp:38]   --->   Operation 205 'writeresp' 'empty_82' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 206 [5/7] (7.00ns)   --->   "%empty_83 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr, i32 153600" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 206 'readreq' 'empty_83' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 7> <Delay = 7.00>
+ST_9 : Operation 207 [2/5] (7.00ns)   --->   "%empty_82 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr" [getPhaseMap2/getPhaseMap.cpp:38]   --->   Operation 207 'writeresp' 'empty_82' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 208 [4/7] (7.00ns)   --->   "%empty_83 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr, i32 153600" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 208 'readreq' 'empty_83' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 8> <Delay = 7.00>
+ST_10 : Operation 209 [1/5] (7.00ns)   --->   "%empty_82 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr" [getPhaseMap2/getPhaseMap.cpp:38]   --->   Operation 209 'writeresp' 'empty_82' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 210 [3/7] (7.00ns)   --->   "%empty_83 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr, i32 153600" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 210 'readreq' 'empty_83' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 11 <SV = 9> <Delay = 7.00>
+ST_11 : Operation 211 [2/7] (7.00ns)   --->   "%empty_83 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr, i32 153600" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 211 'readreq' 'empty_83' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 212 [1/1] (2.55ns)   --->   "%empty_84 = add i32 %port1_offset_read, i32 614400"   --->   Operation 212 'add' 'empty_84' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 213 [1/1] (0.00ns)   --->   "%trunc_ln46_1 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %empty_84, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 213 'partselect' 'trunc_ln46_1' <Predicate = true> <Delay = 0.00>
+
+State 12 <SV = 10> <Delay = 7.00>
+ST_12 : Operation 214 [1/1] (0.95ns)   --->   "%cmp17 = icmp_eq  i2 %mode, i2 0"   --->   Operation 214 'icmp' 'cmp17' <Predicate = true> <Delay = 0.95> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 215 [1/7] (7.00ns)   --->   "%empty_83 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr, i32 153600" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 215 'readreq' 'empty_83' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 216 [1/1] (0.00ns)   --->   "%sext_ln46_1 = sext i30 %trunc_ln46_1" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 216 'sext' 'sext_ln46_1' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 217 [1/1] (0.00ns)   --->   "%port1_addr_1 = getelementptr i32 %port1, i32 %sext_ln46_1" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 217 'getelementptr' 'port1_addr_1' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 218 [1/1] (7.00ns)   --->   "%empty_85 = writereq i1 @_ssdm_op_WriteReq.m_axi.p1i32, i32 %port1_addr_1, i32 153600" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 218 'writereq' 'empty_85' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 219 [1/1] (1.58ns)   --->   "%br_ln46 = br void" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 219 'br' 'br_ln46' <Predicate = true> <Delay = 1.58>
+
+State 13 <SV = 11> <Delay = 2.44>
+ST_13 : Operation 220 [1/1] (0.00ns)   --->   "%indvar454 = phi i19 0, void, i19 %add_ln46_1, void %._crit_edge" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 220 'phi' 'indvar454' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 221 [1/1] (0.00ns)   --->   "%i_1 = phi i20 307200, void, i20 %add_ln46, void %._crit_edge" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 221 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 222 [1/1] (2.16ns)   --->   "%add_ln46_1 = add i19 %indvar454, i19 1" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 222 'add' 'add_ln46_1' <Predicate = true> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 223 [1/1] (2.44ns)   --->   "%icmp_ln46 = icmp_eq  i20 %i_1, i20 614400" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 223 'icmp' 'icmp_ln46' <Predicate = true> <Delay = 2.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 224 [1/1] (0.00ns)   --->   "%br_ln46 = br i1 %icmp_ln46, void %.split17, void" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 224 'br' 'br_ln46' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 225 [1/1] (0.00ns)   --->   "%trunc_ln46 = trunc i19 %indvar454" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 225 'trunc' 'trunc_ln46' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_13 : Operation 226 [1/1] (0.00ns)   --->   "%dcs_in_read_1 = read i16 @_ssdm_op_Read.axis.volatile.i16P128A, i16 %dcs_in"   --->   Operation 226 'read' 'dcs_in_read_1' <Predicate = (!icmp_ln46)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_13 : Operation 227 [1/1] (0.00ns)   --->   "%dcs2_V = trunc i16 %dcs_in_read_1"   --->   Operation 227 'trunc' 'dcs2_V' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_13 : Operation 228 [1/1] (2.19ns)   --->   "%add_ln46 = add i20 %i_1, i20 1" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 228 'add' 'add_ln46' <Predicate = (!icmp_ln46)> <Delay = 2.19> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 12> <Delay = 7.00>
+ST_14 : Operation 229 [1/1] (7.00ns)   --->   "%port0_addr_read = read i32 @_ssdm_op_Read.m_axi.p1i32, i32 %port0_addr"   --->   Operation 229 'read' 'port0_addr_read' <Predicate = (!icmp_ln46 & !trunc_ln46)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 15 <SV = 13> <Delay = 4.53>
+ST_15 : Operation 230 [1/1] (0.00ns)   --->   "%shiftreg472 = phi i16 0, void, i16 %trunc_ln4, void %._crit_edge"   --->   Operation 230 'phi' 'shiftreg472' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 231 [1/1] (0.00ns)   --->   "%phi_ln329_1 = phi i13 0, void, i13 %phitmp13_cast, void %._crit_edge"   --->   Operation 231 'phi' 'phi_ln329_1' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 232 [1/1] (0.00ns)   --->   "%sext_ln46_2 = sext i13 %phi_ln329_1" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 232 'sext' 'sext_ln46_2' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 233 [1/1] (0.00ns)   --->   "%empty_86 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 307200, i64 307200, i64 307200"   --->   Operation 233 'speclooptripcount' 'empty_86' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 234 [1/1] (0.00ns)   --->   "%zext_ln46 = zext i16 %shiftreg472" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 234 'zext' 'zext_ln46' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_15 : Operation 235 [1/1] (0.00ns)   --->   "%specpipeline_ln46 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 235 'specpipeline' 'specpipeline_ln46' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_15 : Operation 236 [1/1] (0.00ns)   --->   "%specloopname_ln46 = specloopname void @_ssdm_op_SpecLoopName, void @empty_18" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 236 'specloopname' 'specloopname_ln46' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_15 : Operation 237 [1/1] (1.58ns)   --->   "%br_ln84 = br i1 %trunc_ln46, void, void %.split17._crit_edge"   --->   Operation 237 'br' 'br_ln84' <Predicate = (!icmp_ln46)> <Delay = 1.58>
+ST_15 : Operation 238 [1/1] (1.58ns)   --->   "%br_ln84 = br void %.split17._crit_edge"   --->   Operation 238 'br' 'br_ln84' <Predicate = (!icmp_ln46 & !trunc_ln46)> <Delay = 1.58>
+ST_15 : Operation 239 [1/1] (0.00ns)   --->   "%empty_87 = phi i32 %port0_addr_read, void, i32 %zext_ln46, void %.split17"   --->   Operation 239 'phi' 'empty_87' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_15 : Operation 240 [1/1] (0.00ns)   --->   "%trunc_ln4 = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32.i32, i32 %empty_87, i32 16, i32 31"   --->   Operation 240 'partselect' 'trunc_ln4' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_15 : Operation 241 [1/1] (0.00ns)   --->   "%dcs0_V_2 = trunc i32 %empty_87"   --->   Operation 241 'trunc' 'dcs0_V_2' <Predicate = (!icmp_ln46 & !cmp17)> <Delay = 0.00>
+ST_15 : Operation 242 [1/1] (0.00ns)   --->   "%sext_ln215 = sext i12 %dcs2_V"   --->   Operation 242 'sext' 'sext_ln215' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_15 : Operation 243 [1/1] (0.00ns)   --->   "%sext_ln215_1 = sext i12 %dcs0_V_2"   --->   Operation 243 'sext' 'sext_ln215_1' <Predicate = (!icmp_ln46 & !cmp17)> <Delay = 0.00>
+ST_15 : Operation 244 [1/1] (1.54ns)   --->   "%ret_41 = sub i13 %sext_ln215, i13 %sext_ln215_1"   --->   Operation 244 'sub' 'ret_41' <Predicate = (!icmp_ln46 & !cmp17)> <Delay = 1.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 245 [1/1] (0.69ns)   --->   "%L1_result_V_1 = select i1 %cmp17, i13 %sext_ln215, i13 %ret_41" [getPhaseMap2/getPhaseMap.cpp:51]   --->   Operation 245 'select' 'L1_result_V_1' <Predicate = (!icmp_ln46)> <Delay = 0.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_15 : Operation 246 [1/1] (0.00ns)   --->   "%br_ln329 = br i1 %trunc_ln46, void %._crit_edge, void"   --->   Operation 246 'br' 'br_ln329' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_15 : Operation 247 [1/1] (0.69ns)   --->   "%phitmp13_cast = select i1 %trunc_ln46, i13 0, i13 %L1_result_V_1" [getPhaseMap2/getPhaseMap.cpp:46]   --->   Operation 247 'select' 'phitmp13_cast' <Predicate = (!icmp_ln46)> <Delay = 0.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_15 : Operation 248 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 248 'br' 'br_ln0' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+
+State 16 <SV = 14> <Delay = 7.00>
+ST_16 : Operation 249 [1/1] (0.00ns)   --->   "%tmp_15 = bitconcatenate i29 @_ssdm_op_BitConcatenate.i29.i13.i16, i13 %L1_result_V_1, i16 %sext_ln46_2"   --->   Operation 249 'bitconcatenate' 'tmp_15' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_16 : Operation 250 [1/1] (0.00ns)   --->   "%sext_ln329_2 = sext i29 %tmp_15"   --->   Operation 250 'sext' 'sext_ln329_2' <Predicate = (!icmp_ln46)> <Delay = 0.00>
+ST_16 : Operation 251 [1/1] (7.00ns)   --->   "%write_ln329 = write void @_ssdm_op_Write.m_axi.p1i32, i32 %port1_addr_1, i32 %sext_ln329_2, i4 15"   --->   Operation 251 'write' 'write_ln329' <Predicate = (trunc_ln46)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 252 [1/1] (0.00ns)   --->   "%br_ln329 = br void %._crit_edge"   --->   Operation 252 'br' 'br_ln329' <Predicate = (trunc_ln46)> <Delay = 0.00>
+
+State 17 <SV = 14> <Delay = 7.00>
+ST_17 : Operation 253 [5/5] (7.00ns)   --->   "%empty_88 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_1"   --->   Operation 253 'writeresp' 'empty_88' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 18 <SV = 15> <Delay = 7.00>
+ST_18 : Operation 254 [4/5] (7.00ns)   --->   "%empty_88 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_1"   --->   Operation 254 'writeresp' 'empty_88' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 19 <SV = 16> <Delay = 7.00>
+ST_19 : Operation 255 [3/5] (7.00ns)   --->   "%empty_88 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_1"   --->   Operation 255 'writeresp' 'empty_88' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 20 <SV = 17> <Delay = 7.00>
+ST_20 : Operation 256 [2/5] (7.00ns)   --->   "%empty_88 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_1"   --->   Operation 256 'writeresp' 'empty_88' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 257 [1/1] (2.55ns)   --->   "%empty_89 = add i32 %port1_offset_read, i32 1228800"   --->   Operation 257 'add' 'empty_89' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 258 [1/1] (0.00ns)   --->   "%trunc_ln2 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %empty_89, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 258 'partselect' 'trunc_ln2' <Predicate = true> <Delay = 0.00>
+
+State 21 <SV = 18> <Delay = 7.00>
+ST_21 : Operation 259 [1/1] (0.00ns)   --->   "%amp_scale_en_V = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %regCtrl_read, i32 2" [getPhaseMap2/getPhaseMap.cpp:37]   --->   Operation 259 'bitselect' 'amp_scale_en_V' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 260 [1/5] (7.00ns)   --->   "%empty_88 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_1"   --->   Operation 260 'writeresp' 'empty_88' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 261 [1/1] (0.00ns)   --->   "%sext_ln59 = sext i30 %trunc_ln2" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 261 'sext' 'sext_ln59' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 262 [1/1] (0.00ns)   --->   "%port1_addr_2 = getelementptr i32 %port1, i32 %sext_ln59" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 262 'getelementptr' 'port1_addr_2' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 263 [1/1] (7.00ns)   --->   "%empty_90 = writereq i1 @_ssdm_op_WriteReq.m_axi.p1i32, i32 %port1_addr_2, i32 153600" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 263 'writereq' 'empty_90' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 264 [1/1] (1.58ns)   --->   "%br_ln59 = br void" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 264 'br' 'br_ln59' <Predicate = true> <Delay = 1.58>
+
+State 22 <SV = 19> <Delay = 2.44>
+ST_22 : Operation 265 [1/1] (0.00ns)   --->   "%indvar451 = phi i19 %add_ln59_1, void %.split15._crit_edge, i19 0, void" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 265 'phi' 'indvar451' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 266 [1/1] (0.00ns)   --->   "%i_2 = phi i20 %add_ln59, void %.split15._crit_edge, i20 614400, void" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 266 'phi' 'i_2' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 267 [1/1] (0.00ns)   --->   "%phi_ln329_2 = phi i12 %phitmp10_cast, void %.split15._crit_edge, i12 0, void"   --->   Operation 267 'phi' 'phi_ln329_2' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 268 [1/1] (2.16ns)   --->   "%add_ln59_1 = add i19 %indvar451, i19 1" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 268 'add' 'add_ln59_1' <Predicate = true> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 269 [1/1] (0.00ns)   --->   "%sext_ln59_1 = sext i12 %phi_ln329_2" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 269 'sext' 'sext_ln59_1' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 270 [1/1] (2.44ns)   --->   "%icmp_ln59 = icmp_eq  i20 %i_2, i20 921600" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 270 'icmp' 'icmp_ln59' <Predicate = true> <Delay = 2.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 271 [1/1] (0.00ns)   --->   "%empty_91 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 307200, i64 307200, i64 307200"   --->   Operation 271 'speclooptripcount' 'empty_91' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 272 [1/1] (0.00ns)   --->   "%br_ln59 = br i1 %icmp_ln59, void %.split15, void" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 272 'br' 'br_ln59' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 273 [1/1] (0.00ns)   --->   "%trunc_ln59 = trunc i19 %indvar451" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 273 'trunc' 'trunc_ln59' <Predicate = (!icmp_ln59)> <Delay = 0.00>
+ST_22 : Operation 274 [1/1] (0.00ns)   --->   "%dcs_in_read_2 = read i16 @_ssdm_op_Read.axis.volatile.i16P128A, i16 %dcs_in"   --->   Operation 274 'read' 'dcs_in_read_2' <Predicate = (!icmp_ln59)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_22 : Operation 275 [1/1] (0.00ns)   --->   "%dcs1_V = trunc i16 %dcs_in_read_2"   --->   Operation 275 'trunc' 'dcs1_V' <Predicate = (!icmp_ln59)> <Delay = 0.00>
+ST_22 : Operation 276 [1/1] (0.00ns)   --->   "%br_ln329 = br i1 %trunc_ln59, void %.split15._crit_edge, void"   --->   Operation 276 'br' 'br_ln329' <Predicate = (!icmp_ln59)> <Delay = 0.00>
+ST_22 : Operation 277 [1/1] (2.19ns)   --->   "%add_ln59 = add i20 %i_2, i20 1" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 277 'add' 'add_ln59' <Predicate = (!icmp_ln59)> <Delay = 2.19> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 278 [1/1] (0.69ns)   --->   "%phitmp10_cast = select i1 %trunc_ln59, i12 0, i12 %dcs1_V" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 278 'select' 'phitmp10_cast' <Predicate = (!icmp_ln59)> <Delay = 0.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_22 : Operation 279 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 279 'br' 'br_ln0' <Predicate = (!icmp_ln59)> <Delay = 0.00>
+
+State 23 <SV = 20> <Delay = 7.00>
+ST_23 : Operation 280 [1/1] (0.00ns)   --->   "%specpipeline_ln59 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 280 'specpipeline' 'specpipeline_ln59' <Predicate = (!icmp_ln59)> <Delay = 0.00>
+ST_23 : Operation 281 [1/1] (0.00ns)   --->   "%specloopname_ln59 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17" [getPhaseMap2/getPhaseMap.cpp:59]   --->   Operation 281 'specloopname' 'specloopname_ln59' <Predicate = (!icmp_ln59)> <Delay = 0.00>
+ST_23 : Operation 282 [1/1] (0.00ns)   --->   "%tmp_s = bitconcatenate i28 @_ssdm_op_BitConcatenate.i28.i12.i16, i12 %dcs1_V, i16 %sext_ln59_1"   --->   Operation 282 'bitconcatenate' 'tmp_s' <Predicate = (!icmp_ln59)> <Delay = 0.00>
+ST_23 : Operation 283 [1/1] (0.00ns)   --->   "%sext_ln329_1 = sext i28 %tmp_s"   --->   Operation 283 'sext' 'sext_ln329_1' <Predicate = (!icmp_ln59)> <Delay = 0.00>
+ST_23 : Operation 284 [1/1] (7.00ns)   --->   "%write_ln329 = write void @_ssdm_op_Write.m_axi.p1i32, i32 %port1_addr_2, i32 %sext_ln329_1, i4 15"   --->   Operation 284 'write' 'write_ln329' <Predicate = (trunc_ln59)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_23 : Operation 285 [1/1] (0.00ns)   --->   "%br_ln329 = br void %.split15._crit_edge"   --->   Operation 285 'br' 'br_ln329' <Predicate = (trunc_ln59)> <Delay = 0.00>
+
+State 24 <SV = 20> <Delay = 7.00>
+ST_24 : Operation 286 [1/1] (0.00ns)   --->   "%offset_V = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32.i32, i32 %regCtrl_read, i32 16, i32 31"   --->   Operation 286 'partselect' 'offset_V' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 287 [5/5] (7.00ns)   --->   "%empty_92 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_2" [getPhaseMap2/getPhaseMap.cpp:33]   --->   Operation 287 'writeresp' 'empty_92' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 25 <SV = 21> <Delay = 7.00>
+ST_25 : Operation 288 [4/5] (7.00ns)   --->   "%empty_92 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_2" [getPhaseMap2/getPhaseMap.cpp:33]   --->   Operation 288 'writeresp' 'empty_92' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 26 <SV = 22> <Delay = 7.00>
+ST_26 : Operation 289 [3/5] (7.00ns)   --->   "%empty_92 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_2" [getPhaseMap2/getPhaseMap.cpp:33]   --->   Operation 289 'writeresp' 'empty_92' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 27 <SV = 23> <Delay = 7.00>
+ST_27 : Operation 290 [2/5] (7.00ns)   --->   "%empty_92 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_2" [getPhaseMap2/getPhaseMap.cpp:33]   --->   Operation 290 'writeresp' 'empty_92' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 28 <SV = 24> <Delay = 7.00>
+ST_28 : Operation 291 [1/5] (7.00ns)   --->   "%empty_92 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_2" [getPhaseMap2/getPhaseMap.cpp:33]   --->   Operation 291 'writeresp' 'empty_92' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_28 : Operation 292 [1/1] (2.55ns)   --->   "%empty_93 = add i32 %port0_offset_read, i32 614400"   --->   Operation 292 'add' 'empty_93' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 293 [1/1] (0.00ns)   --->   "%trunc_ln3 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %empty_93, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 293 'partselect' 'trunc_ln3' <Predicate = true> <Delay = 0.00>
+
+State 29 <SV = 25> <Delay = 7.00>
+ST_29 : Operation 294 [1/1] (0.00ns)   --->   "%sext_ln67 = sext i30 %trunc_ln3" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 294 'sext' 'sext_ln67' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 295 [1/1] (0.00ns)   --->   "%port0_addr_1 = getelementptr i32 %port0, i32 %sext_ln67" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 295 'getelementptr' 'port0_addr_1' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 296 [7/7] (7.00ns)   --->   "%empty_94 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr_1, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 296 'readreq' 'empty_94' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_29 : Operation 297 [7/7] (7.00ns)   --->   "%empty_95 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port1_addr_2, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 297 'readreq' 'empty_95' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 30 <SV = 26> <Delay = 7.00>
+ST_30 : Operation 298 [6/7] (7.00ns)   --->   "%empty_94 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr_1, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 298 'readreq' 'empty_94' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_30 : Operation 299 [6/7] (7.00ns)   --->   "%empty_95 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port1_addr_2, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 299 'readreq' 'empty_95' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 31 <SV = 27> <Delay = 7.00>
+ST_31 : Operation 300 [5/7] (7.00ns)   --->   "%empty_94 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr_1, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 300 'readreq' 'empty_94' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_31 : Operation 301 [5/7] (7.00ns)   --->   "%empty_95 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port1_addr_2, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 301 'readreq' 'empty_95' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 32 <SV = 28> <Delay = 7.00>
+ST_32 : Operation 302 [4/7] (7.00ns)   --->   "%empty_94 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr_1, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 302 'readreq' 'empty_94' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_32 : Operation 303 [4/7] (7.00ns)   --->   "%empty_95 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port1_addr_2, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 303 'readreq' 'empty_95' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 33 <SV = 29> <Delay = 7.00>
+ST_33 : Operation 304 [3/7] (7.00ns)   --->   "%empty_94 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr_1, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 304 'readreq' 'empty_94' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_33 : Operation 305 [3/7] (7.00ns)   --->   "%empty_95 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port1_addr_2, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 305 'readreq' 'empty_95' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 34 <SV = 30> <Delay = 7.00>
+ST_34 : Operation 306 [2/7] (7.00ns)   --->   "%empty_94 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr_1, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 306 'readreq' 'empty_94' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_34 : Operation 307 [2/7] (7.00ns)   --->   "%empty_95 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port1_addr_2, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 307 'readreq' 'empty_95' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_34 : Operation 308 [1/1] (2.55ns)   --->   "%empty_96 = add i32 %port1_offset_read, i32 1843200"   --->   Operation 308 'add' 'empty_96' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 309 [1/1] (0.00ns)   --->   "%trunc_ln67_1 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %empty_96, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 309 'partselect' 'trunc_ln67_1' <Predicate = true> <Delay = 0.00>
+
+State 35 <SV = 31> <Delay = 7.00>
+ST_35 : Operation 310 [1/1] (0.97ns)   --->   "%cmp_i_i9_i = xor i1 %amp_scale_en_V, i1 1" [getPhaseMap2/getPhaseMap.cpp:37]   --->   Operation 310 'xor' 'cmp_i_i9_i' <Predicate = true> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 311 [1/7] (7.00ns)   --->   "%empty_94 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port0_addr_1, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 311 'readreq' 'empty_94' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_35 : Operation 312 [1/7] (7.00ns)   --->   "%empty_95 = readreq i1 @_ssdm_op_ReadReq.m_axi.p1i32, i32 %port1_addr_2, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 312 'readreq' 'empty_95' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_35 : Operation 313 [1/1] (0.00ns)   --->   "%sext_ln67_1 = sext i30 %trunc_ln67_1" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 313 'sext' 'sext_ln67_1' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 314 [1/1] (0.00ns)   --->   "%port1_addr_3 = getelementptr i32 %port1, i32 %sext_ln67_1" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 314 'getelementptr' 'port1_addr_3' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 315 [1/1] (7.00ns)   --->   "%empty_97 = writereq i1 @_ssdm_op_WriteReq.m_axi.p1i32, i32 %port1_addr_3, i32 153600" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 315 'writereq' 'empty_97' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_35 : Operation 316 [1/1] (1.58ns)   --->   "%br_ln67 = br void" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 316 'br' 'br_ln67' <Predicate = true> <Delay = 1.58>
+
+State 36 <SV = 32> <Delay = 2.44>
+ST_36 : Operation 317 [1/1] (0.00ns)   --->   "%indvar443 = phi i19 0, void, i19 %add_ln67_1, void %._crit_edge20" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 317 'phi' 'indvar443' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 318 [1/1] (0.00ns)   --->   "%i_3 = phi i21 921600, void, i21 %add_ln67, void %._crit_edge20" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 318 'phi' 'i_3' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 319 [1/1] (0.00ns)   --->   "%amp_max_V = phi i16 0, void, i16 %amp_max_V_1, void %._crit_edge20"   --->   Operation 319 'phi' 'amp_max_V' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 320 [1/1] (0.00ns)   --->   "%phi_ln329_3 = phi i16 0, void, i16 %phitmp7_cast, void %._crit_edge20"   --->   Operation 320 'phi' 'phi_ln329_3' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 321 [1/1] (0.00ns)   --->   "%shiftreg466 = phi i16 0, void, i16 %trunc_ln84_4, void %._crit_edge20"   --->   Operation 321 'phi' 'shiftreg466' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 322 [1/1] (0.00ns)   --->   "%shiftreg468 = phi i16 0, void, i16 %trunc_ln84_5, void %._crit_edge20"   --->   Operation 322 'phi' 'shiftreg468' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 323 [1/1] (2.16ns)   --->   "%add_ln67_1 = add i19 %indvar443, i19 1" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 323 'add' 'add_ln67_1' <Predicate = true> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 324 [1/1] (2.44ns)   --->   "%icmp_ln67 = icmp_eq  i21 %i_3, i21 1228800" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 324 'icmp' 'icmp_ln67' <Predicate = true> <Delay = 2.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 325 [1/1] (0.00ns)   --->   "%empty_98 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 307200, i64 307200, i64 307200"   --->   Operation 325 'speclooptripcount' 'empty_98' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 326 [1/1] (0.00ns)   --->   "%br_ln67 = br i1 %icmp_ln67, void %.split13, void" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 326 'br' 'br_ln67' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 327 [1/1] (0.00ns)   --->   "%trunc_ln67 = trunc i19 %indvar443" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 327 'trunc' 'trunc_ln67' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_36 : Operation 328 [1/1] (0.00ns)   --->   "%dcs_in_read_3 = read i16 @_ssdm_op_Read.axis.volatile.i16P128A, i16 %dcs_in"   --->   Operation 328 'read' 'dcs_in_read_3' <Predicate = (!icmp_ln67)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 115 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_36 : Operation 329 [1/1] (0.00ns)   --->   "%dcs3_V = trunc i16 %dcs_in_read_3"   --->   Operation 329 'trunc' 'dcs3_V' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_36 : Operation 330 [1/1] (2.22ns)   --->   "%add_ln67 = add i21 %i_3, i21 1" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 330 'add' 'add_ln67' <Predicate = (!icmp_ln67)> <Delay = 2.22> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 33> <Delay = 7.00>
+ST_37 : Operation 331 [1/1] (7.00ns)   --->   "%port0_addr_1_read = read i32 @_ssdm_op_Read.m_axi.p1i32, i32 %port0_addr_1"   --->   Operation 331 'read' 'port0_addr_1_read' <Predicate = (!icmp_ln67 & !trunc_ln67)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_37 : Operation 332 [1/1] (7.00ns)   --->   "%port1_addr_2_read = read i32 @_ssdm_op_Read.m_axi.p1i32, i32 %port1_addr_2"   --->   Operation 332 'read' 'port1_addr_2_read' <Predicate = (!icmp_ln67 & !trunc_ln67)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_37 : Operation 333 [1/1] (1.82ns)   --->   "%switch_ln74 = switch i2 %mode, void %._crit_edge19, i2 0, void, i2 1, void, i2 2, void" [getPhaseMap2/getPhaseMap.cpp:74]   --->   Operation 333 'switch' 'switch_ln74' <Predicate = (!icmp_ln67)> <Delay = 1.82>
+
+State 38 <SV = 34> <Delay = 1.58>
+ST_38 : Operation 334 [1/1] (0.00ns)   --->   "%zext_ln67 = zext i16 %shiftreg468" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 334 'zext' 'zext_ln67' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_38 : Operation 335 [1/1] (0.00ns)   --->   "%zext_ln67_1 = zext i16 %shiftreg466" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 335 'zext' 'zext_ln67_1' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_38 : Operation 336 [1/1] (0.00ns)   --->   "%specpipeline_ln33 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [getPhaseMap2/getPhaseMap.cpp:33]   --->   Operation 336 'specpipeline' 'specpipeline_ln33' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_38 : Operation 337 [1/1] (0.00ns)   --->   "%specloopname_ln33 = specloopname void @_ssdm_op_SpecLoopName, void @empty_16" [getPhaseMap2/getPhaseMap.cpp:33]   --->   Operation 337 'specloopname' 'specloopname_ln33' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_38 : Operation 338 [1/1] (1.58ns)   --->   "%br_ln84 = br i1 %trunc_ln67, void, void %.split13._crit_edge"   --->   Operation 338 'br' 'br_ln84' <Predicate = (!icmp_ln67)> <Delay = 1.58>
+ST_38 : Operation 339 [1/1] (1.58ns)   --->   "%br_ln84 = br void %.split13._crit_edge"   --->   Operation 339 'br' 'br_ln84' <Predicate = (!icmp_ln67 & !trunc_ln67)> <Delay = 1.58>
+ST_38 : Operation 340 [1/1] (0.00ns)   --->   "%p_in = phi i32 %port0_addr_1_read, void, i32 %zext_ln67_1, void %.split13"   --->   Operation 340 'phi' 'p_in' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_38 : Operation 341 [1/1] (0.00ns)   --->   "%empty_99 = phi i32 %port1_addr_2_read, void, i32 %zext_ln67, void %.split13"   --->   Operation 341 'phi' 'empty_99' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_38 : Operation 342 [1/1] (0.00ns)   --->   "%y_V = trunc i32 %p_in"   --->   Operation 342 'trunc' 'y_V' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_38 : Operation 343 [1/1] (0.00ns)   --->   "%trunc_ln84_4 = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32.i32, i32 %p_in, i32 16, i32 31"   --->   Operation 343 'partselect' 'trunc_ln84_4' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_38 : Operation 344 [1/1] (0.00ns)   --->   "%trunc_ln84_5 = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32.i32, i32 %empty_99, i32 16, i32 31"   --->   Operation 344 'partselect' 'trunc_ln84_5' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_38 : Operation 345 [1/1] (0.00ns)   --->   "%dcs1_V_2 = trunc i32 %empty_99"   --->   Operation 345 'trunc' 'dcs1_V_2' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+
+State 39 <SV = 35> <Delay = 6.70>
+ST_39 : Operation 346 [1/1] (0.00ns)   --->   "%sext_ln215_2 = sext i12 %dcs3_V"   --->   Operation 346 'sext' 'sext_ln215_2' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_39 : Operation 347 [1/1] (0.00ns)   --->   "%sext_ln215_3 = sext i12 %dcs1_V_2"   --->   Operation 347 'sext' 'sext_ln215_3' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_39 : Operation 348 [1/1] (1.54ns)   --->   "%ret_42 = sub i13 %sext_ln215_2, i13 %sext_ln215_3"   --->   Operation 348 'sub' 'ret_42' <Predicate = (!icmp_ln67)> <Delay = 1.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 349 [17/17] (5.16ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 349 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 5.16> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_39 : Operation 350 [1/1] (0.00ns)   --->   "%sext_ln215_4 = sext i16 %y_V"   --->   Operation 350 'sext' 'sext_ln215_4' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 0.00>
+ST_39 : Operation 351 [4/4] (2.15ns) (root node of the DSP)   --->   "%ret_38 = mul i32 %sext_ln215_4, i32 %sext_ln215_4"   --->   Operation 351 'mul' 'ret_38' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 2.15> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 40 <SV = 36> <Delay = 6.99>
+ST_40 : Operation 352 [16/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 352 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_40 : Operation 353 [1/1] (0.00ns)   --->   "%sext_ln1345_2 = sext i13 %ret_42"   --->   Operation 353 'sext' 'sext_ln1345_2' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 0.00>
+ST_40 : Operation 354 [3/3] (1.05ns) (grouped into DSP with root node amp_V_1)   --->   "%ret = mul i26 %sext_ln1345_2, i26 %sext_ln1345_2"   --->   Operation 354 'mul' 'ret' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 1.05> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_40 : Operation 355 [3/4] (2.15ns) (root node of the DSP)   --->   "%ret_38 = mul i32 %sext_ln215_4, i32 %sext_ln215_4"   --->   Operation 355 'mul' 'ret_38' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 2.15> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 41 <SV = 37> <Delay = 6.99>
+ST_41 : Operation 356 [15/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 356 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_41 : Operation 357 [2/3] (1.05ns) (grouped into DSP with root node amp_V_1)   --->   "%ret = mul i26 %sext_ln1345_2, i26 %sext_ln1345_2"   --->   Operation 357 'mul' 'ret' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 1.05> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_41 : Operation 358 [2/4] (2.15ns) (root node of the DSP)   --->   "%ret_38 = mul i32 %sext_ln215_4, i32 %sext_ln215_4"   --->   Operation 358 'mul' 'ret_38' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 2.15> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 42 <SV = 38> <Delay = 6.99>
+ST_42 : Operation 359 [14/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 359 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_42 : Operation 360 [1/3] (0.00ns) (grouped into DSP with root node amp_V_1)   --->   "%ret = mul i26 %sext_ln1345_2, i26 %sext_ln1345_2"   --->   Operation 360 'mul' 'ret' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_42 : Operation 361 [1/1] (0.00ns) (grouped into DSP with root node amp_V_1)   --->   "%sext_ln1345_3 = sext i26 %ret"   --->   Operation 361 'sext' 'sext_ln1345_3' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 0.00>
+ST_42 : Operation 362 [1/4] (0.00ns) (root node of the DSP)   --->   "%ret_38 = mul i32 %sext_ln215_4, i32 %sext_ln215_4"   --->   Operation 362 'mul' 'ret_38' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_42 : Operation 363 [2/2] (2.10ns) (root node of the DSP)   --->   "%amp_V_1 = add i32 %sext_ln1345_3, i32 %ret_38"   --->   Operation 363 'add' 'amp_V_1' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 2.10> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 43 <SV = 39> <Delay = 6.99>
+ST_43 : Operation 364 [13/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 364 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_43 : Operation 365 [1/2] (2.10ns) (root node of the DSP)   --->   "%amp_V_1 = add i32 %sext_ln1345_3, i32 %ret_38"   --->   Operation 365 'add' 'amp_V_1' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 2.10> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_43 : Operation 366 [10/10] (1.56ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 366 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 1.56> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 44 <SV = 40> <Delay = 6.99>
+ST_44 : Operation 367 [12/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 367 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_44 : Operation 368 [9/10] (6.93ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 368 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 6.93> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 45 <SV = 41> <Delay = 6.99>
+ST_45 : Operation 369 [11/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 369 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_45 : Operation 370 [8/10] (6.93ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 370 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 6.93> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 46 <SV = 42> <Delay = 6.99>
+ST_46 : Operation 371 [10/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 371 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_46 : Operation 372 [7/10] (6.93ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 372 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 6.93> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 47 <SV = 43> <Delay = 6.99>
+ST_47 : Operation 373 [9/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 373 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_47 : Operation 374 [6/10] (6.93ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 374 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 6.93> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 48 <SV = 44> <Delay = 6.99>
+ST_48 : Operation 375 [8/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 375 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_48 : Operation 376 [5/10] (6.93ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 376 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 6.93> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 49 <SV = 45> <Delay = 6.99>
+ST_49 : Operation 377 [7/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 377 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_49 : Operation 378 [4/10] (6.93ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 378 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 6.93> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 50 <SV = 46> <Delay = 6.99>
+ST_50 : Operation 379 [6/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 379 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_50 : Operation 380 [3/10] (6.93ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 380 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 6.93> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 51 <SV = 47> <Delay = 6.99>
+ST_51 : Operation 381 [5/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 381 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_51 : Operation 382 [2/10] (6.93ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 382 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 6.93> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 52 <SV = 48> <Delay = 6.99>
+ST_52 : Operation 383 [4/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 383 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_52 : Operation 384 [1/10] (6.54ns)   --->   "%p_Val2_s = call i16 @sqrt_fixed<32, 32>, i32 %amp_V_1" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 384 'call' 'p_Val2_s' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 6.54> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_52 : Operation 385 [1/1] (0.00ns)   --->   "%tmp_34 = partselect i8 @_ssdm_op_PartSelect.i8.i16.i32.i32, i16 %p_Val2_s, i32 8, i32 15"   --->   Operation 385 'partselect' 'tmp_34' <Predicate = (!icmp_ln67 & mode == 1 & !amp_scale_en_V)> <Delay = 0.00>
+
+State 53 <SV = 49> <Delay = 6.99>
+ST_53 : Operation 386 [3/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 386 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_53 : Operation 387 [1/1] (1.55ns)   --->   "%icmp_ln886 = icmp_ne  i8 %tmp_34, i8 0"   --->   Operation 387 'icmp' 'icmp_ln886' <Predicate = (!icmp_ln67 & mode == 1 & !amp_scale_en_V)> <Delay = 1.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_53 : Operation 388 [1/1] (0.00ns) (grouped into LUT with out node L3_result_V_1)   --->   "%select_ln155 = select i1 %icmp_ln886, i16 255, i16 %p_Val2_s" [getPhaseMap2/getPhaseMap.cpp:155]   --->   Operation 388 'select' 'select_ln155' <Predicate = (!icmp_ln67 & mode == 1 & !amp_scale_en_V)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_53 : Operation 389 [1/1] (0.80ns) (out node of the LUT)   --->   "%L3_result_V_1 = select i1 %amp_scale_en_V, i16 %p_Val2_s, i16 %select_ln155" [getPhaseMap2/getPhaseMap.cpp:152]   --->   Operation 389 'select' 'L3_result_V_1' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 0.80> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_53 : Operation 390 [1/1] (1.82ns)   --->   "%br_ln78 = br void %._crit_edge19" [getPhaseMap2/getPhaseMap.cpp:78]   --->   Operation 390 'br' 'br_ln78' <Predicate = (!icmp_ln67 & mode == 1)> <Delay = 1.82>
+
+State 54 <SV = 50> <Delay = 6.99>
+ST_54 : Operation 391 [2/17] (6.99ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 391 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 6.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 55 <SV = 51> <Delay = 5.60>
+ST_55 : Operation 392 [1/17] (0.97ns)   --->   "%phase_V = call i16 @generic_atan2<16, 3>, i13 %ret_42, i16 %y_V" [E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869]   --->   Operation 392 'call' 'phase_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 0.97> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_55 : Operation 393 [1/1] (2.07ns)   --->   "%phase_V_2 = add i16 %phase_V, i16 25735"   --->   Operation 393 'add' 'phase_V_2' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_55 : Operation 394 [1/1] (0.00ns)   --->   "%zext_ln1345_4 = zext i16 %phase_V_2"   --->   Operation 394 'zext' 'zext_ln1345_4' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 0.00>
+ST_55 : Operation 395 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %phase_V_2, i16 0"   --->   Operation 395 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 0.00>
+ST_55 : Operation 396 [1/1] (0.00ns)   --->   "%zext_ln1345_5 = zext i32 %shl_ln"   --->   Operation 396 'zext' 'zext_ln1345_5' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 0.00>
+ST_55 : Operation 397 [1/1] (2.55ns)   --->   "%ret_40 = sub i33 %zext_ln1345_5, i33 %zext_ln1345_4"   --->   Operation 397 'sub' 'ret_40' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 56 <SV = 52> <Delay = 5.66>
+ST_56 : Operation 398 [1/1] (0.00ns)   --->   "%sext_ln1364 = sext i33 %ret_40"   --->   Operation 398 'sext' 'sext_ln1364' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 0.00>
+ST_56 : Operation 399 [1/1] (0.00ns)   --->   "%zext_ln1364 = zext i48 %sext_ln1364"   --->   Operation 399 'zext' 'zext_ln1364' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 0.00>
+ST_56 : Operation 400 [5/5] (5.66ns)   --->   "%mul_ln1364 = mul i80 %zext_ln1364, i80 358391017732501"   --->   Operation 400 'mul' 'mul_ln1364' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 5.66> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 4> <II = 1> <Delay = 5.66> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 57 <SV = 53> <Delay = 5.66>
+ST_57 : Operation 401 [4/5] (5.66ns)   --->   "%mul_ln1364 = mul i80 %zext_ln1364, i80 358391017732501"   --->   Operation 401 'mul' 'mul_ln1364' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 5.66> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 4> <II = 1> <Delay = 5.66> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 58 <SV = 54> <Delay = 5.66>
+ST_58 : Operation 402 [3/5] (5.66ns)   --->   "%mul_ln1364 = mul i80 %zext_ln1364, i80 358391017732501"   --->   Operation 402 'mul' 'mul_ln1364' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 5.66> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 4> <II = 1> <Delay = 5.66> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 59 <SV = 55> <Delay = 5.66>
+ST_59 : Operation 403 [2/5] (5.66ns)   --->   "%mul_ln1364 = mul i80 %zext_ln1364, i80 358391017732501"   --->   Operation 403 'mul' 'mul_ln1364' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 5.66> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 4> <II = 1> <Delay = 5.66> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 60 <SV = 56> <Delay = 5.66>
+ST_60 : Operation 404 [1/5] (5.66ns)   --->   "%mul_ln1364 = mul i80 %zext_ln1364, i80 358391017732501"   --->   Operation 404 'mul' 'mul_ln1364' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 5.66> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 4> <II = 1> <Delay = 5.66> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_60 : Operation 405 [1/1] (0.00ns)   --->   "%trunc_ln8 = partselect i16 @_ssdm_op_PartSelect.i16.i80.i32.i32, i80 %mul_ln1364, i32 64, i32 79"   --->   Operation 405 'partselect' 'trunc_ln8' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 0.00>
+
+State 61 <SV = 57> <Delay = 2.07>
+ST_61 : Operation 406 [1/1] (2.07ns)   --->   "%phaseInt_V = add i16 %trunc_ln8, i16 %offset_V"   --->   Operation 406 'add' 'phaseInt_V' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_61 : Operation 407 [1/1] (1.82ns)   --->   "%br_ln80 = br void %._crit_edge19" [getPhaseMap2/getPhaseMap.cpp:80]   --->   Operation 407 'br' 'br_ln80' <Predicate = (!icmp_ln67 & mode == 2)> <Delay = 1.82>
+ST_61 : Operation 408 [1/1] (0.00ns)   --->   "%sext_ln213 = sext i12 %dcs3_V"   --->   Operation 408 'sext' 'sext_ln213' <Predicate = (!icmp_ln67 & mode == 0)> <Delay = 0.00>
+ST_61 : Operation 409 [1/1] (1.82ns)   --->   "%br_ln76 = br void %._crit_edge19" [getPhaseMap2/getPhaseMap.cpp:76]   --->   Operation 409 'br' 'br_ln76' <Predicate = (!icmp_ln67 & mode == 0)> <Delay = 1.82>
+
+State 62 <SV = 58> <Delay = 7.00>
+ST_62 : Operation 410 [1/1] (0.00ns)   --->   "%L3_result_V_3 = phi i16 0, void %.split13._crit_edge, i16 %phaseInt_V, void, i16 %L3_result_V_1, void, i16 %sext_ln213, void"   --->   Operation 410 'phi' 'L3_result_V_3' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_62 : Operation 411 [1/1] (2.42ns)   --->   "%icmp_ln886_1 = icmp_ugt  i16 %L3_result_V_3, i16 %amp_max_V"   --->   Operation 411 'icmp' 'icmp_ln886_1' <Predicate = (!icmp_ln67)> <Delay = 2.42> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_62 : Operation 412 [1/1] (0.80ns)   --->   "%amp_max_V_1 = select i1 %icmp_ln886_1, i16 %L3_result_V_3, i16 %amp_max_V" [getPhaseMap2/getPhaseMap.cpp:86]   --->   Operation 412 'select' 'amp_max_V_1' <Predicate = (!icmp_ln67)> <Delay = 0.80> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_62 : Operation 413 [1/1] (0.00ns)   --->   "%or_ln329_4 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %L3_result_V_3, i16 %phi_ln329_3"   --->   Operation 413 'bitconcatenate' 'or_ln329_4' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_62 : Operation 414 [1/1] (0.00ns)   --->   "%br_ln329 = br i1 %trunc_ln67, void %._crit_edge20, void"   --->   Operation 414 'br' 'br_ln329' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+ST_62 : Operation 415 [1/1] (7.00ns)   --->   "%write_ln329 = write void @_ssdm_op_Write.m_axi.p1i32, i32 %port1_addr_3, i32 %or_ln329_4, i4 15"   --->   Operation 415 'write' 'write_ln329' <Predicate = (trunc_ln67)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_62 : Operation 416 [1/1] (0.00ns)   --->   "%br_ln329 = br void %._crit_edge20"   --->   Operation 416 'br' 'br_ln329' <Predicate = (trunc_ln67)> <Delay = 0.00>
+ST_62 : Operation 417 [1/1] (0.80ns)   --->   "%phitmp7_cast = select i1 %trunc_ln67, i16 0, i16 %L3_result_V_3" [getPhaseMap2/getPhaseMap.cpp:67]   --->   Operation 417 'select' 'phitmp7_cast' <Predicate = (!icmp_ln67)> <Delay = 0.80> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_62 : Operation 418 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 418 'br' 'br_ln0' <Predicate = (!icmp_ln67)> <Delay = 0.00>
+
+State 63 <SV = 33> <Delay = 7.00>
+ST_63 : Operation 419 [5/5] (7.00ns)   --->   "%empty_100 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_3" [getPhaseMap2/getPhaseMap.cpp:93]   --->   Operation 419 'writeresp' 'empty_100' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_63 : Operation 420 [1/1] (0.95ns)   --->   "%icmp_ln93 = icmp_eq  i2 %mode, i2 1" [getPhaseMap2/getPhaseMap.cpp:93]   --->   Operation 420 'icmp' 'icmp_ln93' <Predicate = true> <Delay = 0.95> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+
+State 64 <SV = 34> <Delay = 7.00>
+ST_64 : Operation 421 [4/5] (7.00ns)   --->   "%empty_100 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_3" [getPhaseMap2/getPhaseMap.cpp:93]   --->   Operation 421 'writeresp' 'empty_100' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 65 <SV = 35> <Delay = 7.00>
+ST_65 : Operation 422 [3/5] (7.00ns)   --->   "%empty_100 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_3" [getPhaseMap2/getPhaseMap.cpp:93]   --->   Operation 422 'writeresp' 'empty_100' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 66 <SV = 36> <Delay = 7.00>
+ST_66 : Operation 423 [2/5] (7.00ns)   --->   "%empty_100 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_3" [getPhaseMap2/getPhaseMap.cpp:93]   --->   Operation 423 'writeresp' 'empty_100' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 67 <SV = 37> <Delay = 7.00>
+ST_67 : Operation 424 [1/5] (7.00ns)   --->   "%empty_100 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i32, i32 %port1_addr_3" [getPhaseMap2/getPhaseMap.cpp:93]   --->   Operation 424 'writeresp' 'empty_100' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_67 : Operation 425 [1/1] (0.97ns)   --->   "%and_ln93 = and i1 %icmp_ln93, i1 %amp_scale_en_V" [getPhaseMap2/getPhaseMap.cpp:93]   --->   Operation 425 'and' 'and_ln93' <Predicate = true> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_67 : Operation 426 [1/1] (0.00ns)   --->   "%br_ln93 = br i1 %and_ln93, void, void" [getPhaseMap2/getPhaseMap.cpp:93]   --->   Operation 426 'br' 'br_ln93' <Predicate = true> <Delay = 0.00>
+ST_67 : Operation 427 [1/1] (0.97ns)   --->   "%and_ln106 = and i1 %icmp_ln93, i1 %cmp_i_i9_i" [getPhaseMap2/getPhaseMap.cpp:106]   --->   Operation 427 'and' 'and_ln106' <Predicate = (!and_ln93)> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_67 : Operation 428 [1/1] (0.00ns)   --->   "%br_ln106 = br i1 %and_ln106, void %.loopexit, void" [getPhaseMap2/getPhaseMap.cpp:106]   --->   Operation 428 'br' 'br_ln106' <Predicate = (!and_ln93)> <Delay = 0.00>
+ST_67 : Operation 429 [1/1] (2.55ns)   --->   "%empty_104 = add i32 %port0_offset_read, i32 1843200"   --->   Operation 429 'add' 'empty_104' <Predicate = (!and_ln93 & and_ln106)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_67 : Operation 430 [1/1] (0.00ns)   --->   "%trunc_ln6 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %empty_104, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:109]   --->   Operation 430 'partselect' 'trunc_ln6' <Predicate = (!and_ln93 & and_ln106)> <Delay = 0.00>
+ST_67 : Operation 431 [1/1] (2.55ns)   --->   "%empty_101 = add i32 %port0_offset_read, i32 1843200"   --->   Operation 431 'add' 'empty_101' <Predicate = (and_ln93)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_67 : Operation 432 [1/1] (0.00ns)   --->   "%trunc_ln5 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %empty_101, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:96]   --->   Operation 432 'partselect' 'trunc_ln5' <Predicate = (and_ln93)> <Delay = 0.00>
+
+State 68 <SV = 38> <Delay = 7.00>
+ST_68 : Operation 433 [1/1] (0.00ns)   --->   "%sext_ln324_1 = sext i30 %trunc_ln6"   --->   Operation 433 'sext' 'sext_ln324_1' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 434 [1/1] (0.00ns)   --->   "%port0_addr_3 = getelementptr i32 %port0, i32 %sext_ln324_1"   --->   Operation 434 'getelementptr' 'port0_addr_3' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 435 [7/7] (7.00ns)   --->   "%port0_addr_5_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_3, i32 153600"   --->   Operation 435 'readreq' 'port0_addr_5_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 69 <SV = 39> <Delay = 7.00>
+ST_69 : Operation 436 [6/7] (7.00ns)   --->   "%port0_addr_5_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_3, i32 153600"   --->   Operation 436 'readreq' 'port0_addr_5_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 70 <SV = 40> <Delay = 7.00>
+ST_70 : Operation 437 [5/7] (7.00ns)   --->   "%port0_addr_5_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_3, i32 153600"   --->   Operation 437 'readreq' 'port0_addr_5_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 71 <SV = 41> <Delay = 7.00>
+ST_71 : Operation 438 [4/7] (7.00ns)   --->   "%port0_addr_5_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_3, i32 153600"   --->   Operation 438 'readreq' 'port0_addr_5_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 72 <SV = 42> <Delay = 7.00>
+ST_72 : Operation 439 [3/7] (7.00ns)   --->   "%port0_addr_5_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_3, i32 153600"   --->   Operation 439 'readreq' 'port0_addr_5_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 73 <SV = 43> <Delay = 7.00>
+ST_73 : Operation 440 [1/1] (2.55ns)   --->   "%empty_105 = add i32 %port1_offset_read, i32 2457600"   --->   Operation 440 'add' 'empty_105' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_73 : Operation 441 [1/1] (0.00ns)   --->   "%trunc_ln109_1 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %empty_105, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:109]   --->   Operation 441 'partselect' 'trunc_ln109_1' <Predicate = true> <Delay = 0.00>
+ST_73 : Operation 442 [2/7] (7.00ns)   --->   "%port0_addr_5_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_3, i32 153600"   --->   Operation 442 'readreq' 'port0_addr_5_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 74 <SV = 44> <Delay = 7.00>
+ST_74 : Operation 443 [1/1] (0.00ns)   --->   "%sext_ln329_4 = sext i30 %trunc_ln109_1"   --->   Operation 443 'sext' 'sext_ln329_4' <Predicate = true> <Delay = 0.00>
+ST_74 : Operation 444 [1/1] (0.00ns)   --->   "%port1_addr_5 = getelementptr i32 %port1, i32 %sext_ln329_4"   --->   Operation 444 'getelementptr' 'port1_addr_5' <Predicate = true> <Delay = 0.00>
+ST_74 : Operation 445 [1/7] (7.00ns)   --->   "%port0_addr_5_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_3, i32 153600"   --->   Operation 445 'readreq' 'port0_addr_5_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_74 : Operation 446 [1/1] (7.00ns)   --->   "%port1_addr_7_wr_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P1A, i32 %port1_addr_5, i32 76800"   --->   Operation 446 'writereq' 'port1_addr_7_wr_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_74 : Operation 447 [1/1] (1.58ns)   --->   "%br_ln109 = br void" [getPhaseMap2/getPhaseMap.cpp:109]   --->   Operation 447 'br' 'br_ln109' <Predicate = true> <Delay = 1.58>
+
+State 75 <SV = 45> <Delay = 2.44>
+ST_75 : Operation 448 [1/1] (0.00ns)   --->   "%i2_1 = phi i21 %add_ln115, void %.split._crit_edge, i21 1228800, void" [getPhaseMap2/getPhaseMap.cpp:115]   --->   Operation 448 'phi' 'i2_1' <Predicate = true> <Delay = 0.00>
+ST_75 : Operation 449 [1/1] (2.44ns)   --->   "%icmp_ln109 = icmp_eq  i21 %i2_1, i21 1382400" [getPhaseMap2/getPhaseMap.cpp:109]   --->   Operation 449 'icmp' 'icmp_ln109' <Predicate = true> <Delay = 2.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 450 [1/1] (0.00ns)   --->   "%br_ln109 = br i1 %icmp_ln109, void %.split, void %.loopexit.loopexit" [getPhaseMap2/getPhaseMap.cpp:109]   --->   Operation 450 'br' 'br_ln109' <Predicate = true> <Delay = 0.00>
+ST_75 : Operation 451 [1/1] (2.22ns)   --->   "%add_ln115 = add i21 %i2_1, i21 1" [getPhaseMap2/getPhaseMap.cpp:115]   --->   Operation 451 'add' 'add_ln115' <Predicate = (!icmp_ln109)> <Delay = 2.22> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 76 <SV = 46> <Delay = 7.00>
+ST_76 : Operation 452 [1/1] (7.00ns)   --->   "%port0_addr_3_read = read i32 @_ssdm_op_Read.m_axi.i32P1A, i32 %port0_addr_3"   --->   Operation 452 'read' 'port0_addr_3_read' <Predicate = (!icmp_ln109)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_76 : Operation 453 [1/1] (0.00ns)   --->   "%amp = trunc i32 %port0_addr_3_read"   --->   Operation 453 'trunc' 'amp' <Predicate = (!icmp_ln109)> <Delay = 0.00>
+ST_76 : Operation 454 [1/1] (0.00ns)   --->   "%tmp_16 = partselect i8 @_ssdm_op_PartSelect.i8.i32.i32.i32, i32 %port0_addr_3_read, i32 16, i32 23"   --->   Operation 454 'partselect' 'tmp_16' <Predicate = (!icmp_ln109)> <Delay = 0.00>
+
+State 77 <SV = 47> <Delay = 2.13>
+ST_77 : Operation 455 [1/1] (0.00ns)   --->   "%phi_ln324_1 = phi i18 %add_ln109, void %.split._crit_edge, i18 0, void"   --->   Operation 455 'phi' 'phi_ln324_1' <Predicate = true> <Delay = 0.00>
+ST_77 : Operation 456 [1/1] (2.13ns)   --->   "%add_ln109 = add i18 %phi_ln324_1, i18 1" [getPhaseMap2/getPhaseMap.cpp:109]   --->   Operation 456 'add' 'add_ln109' <Predicate = true> <Delay = 2.13> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 457 [1/1] (0.00ns)   --->   "%trunc_ln109 = trunc i18 %phi_ln324_1" [getPhaseMap2/getPhaseMap.cpp:109]   --->   Operation 457 'trunc' 'trunc_ln109' <Predicate = (!icmp_ln109)> <Delay = 0.00>
+ST_77 : Operation 458 [1/1] (0.00ns)   --->   "%r_1 = bitconcatenate i16 @_ssdm_op_BitConcatenate.i16.i8.i8, i8 %tmp_16, i8 0"   --->   Operation 458 'bitconcatenate' 'r_1' <Predicate = (!icmp_ln109)> <Delay = 0.00>
+ST_77 : Operation 459 [1/1] (2.07ns)   --->   "%amp_8x2_V_1 = add i16 %r_1, i16 %amp"   --->   Operation 459 'add' 'amp_8x2_V_1' <Predicate = (!icmp_ln109)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 460 [1/1] (0.00ns)   --->   "%br_ln329 = br i1 %trunc_ln109, void %.split._crit_edge, void"   --->   Operation 460 'br' 'br_ln329' <Predicate = (!icmp_ln109)> <Delay = 0.00>
+
+State 78 <SV = 48> <Delay = 7.00>
+ST_78 : Operation 461 [1/1] (0.00ns)   --->   "%phi_ln329_5 = phi i16 %phitmp2_cast, void %.split._crit_edge, i16 0, void"   --->   Operation 461 'phi' 'phi_ln329_5' <Predicate = true> <Delay = 0.00>
+ST_78 : Operation 462 [1/1] (0.00ns)   --->   "%empty_106 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 153600, i64 153600, i64 153600"   --->   Operation 462 'speclooptripcount' 'empty_106' <Predicate = true> <Delay = 0.00>
+ST_78 : Operation 463 [1/1] (0.00ns)   --->   "%specpipeline_ln107 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [getPhaseMap2/getPhaseMap.cpp:107]   --->   Operation 463 'specpipeline' 'specpipeline_ln107' <Predicate = (!icmp_ln109)> <Delay = 0.00>
+ST_78 : Operation 464 [1/1] (0.00ns)   --->   "%specloopname_ln107 = specloopname void @_ssdm_op_SpecLoopName, void @empty_14" [getPhaseMap2/getPhaseMap.cpp:107]   --->   Operation 464 'specloopname' 'specloopname_ln107' <Predicate = (!icmp_ln109)> <Delay = 0.00>
+ST_78 : Operation 465 [1/1] (0.00ns)   --->   "%or_ln329_5 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %amp_8x2_V_1, i16 %phi_ln329_5"   --->   Operation 465 'bitconcatenate' 'or_ln329_5' <Predicate = (!icmp_ln109)> <Delay = 0.00>
+ST_78 : Operation 466 [1/1] (7.00ns)   --->   "%write_ln329 = write void @_ssdm_op_Write.m_axi.i32P1A, i32 %port1_addr_5, i32 %or_ln329_5, i4 15"   --->   Operation 466 'write' 'write_ln329' <Predicate = (!icmp_ln109 & trunc_ln109)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_78 : Operation 467 [1/1] (0.00ns)   --->   "%br_ln329 = br void %.split._crit_edge"   --->   Operation 467 'br' 'br_ln329' <Predicate = (!icmp_ln109 & trunc_ln109)> <Delay = 0.00>
+ST_78 : Operation 468 [1/1] (0.80ns)   --->   "%phitmp2_cast = select i1 %trunc_ln109, i16 0, i16 %amp_8x2_V_1" [getPhaseMap2/getPhaseMap.cpp:109]   --->   Operation 468 'select' 'phitmp2_cast' <Predicate = (!icmp_ln109)> <Delay = 0.80> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_78 : Operation 469 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 469 'br' 'br_ln0' <Predicate = (!icmp_ln109)> <Delay = 0.00>
+
+State 79 <SV = 49> <Delay = 7.00>
+ST_79 : Operation 470 [5/5] (7.00ns)   --->   "%port1_addr_7_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_5"   --->   Operation 470 'writeresp' 'port1_addr_7_wr_resp' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 80 <SV = 50> <Delay = 7.00>
+ST_80 : Operation 471 [4/5] (7.00ns)   --->   "%port1_addr_7_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_5"   --->   Operation 471 'writeresp' 'port1_addr_7_wr_resp' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 81 <SV = 51> <Delay = 7.00>
+ST_81 : Operation 472 [3/5] (7.00ns)   --->   "%port1_addr_7_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_5"   --->   Operation 472 'writeresp' 'port1_addr_7_wr_resp' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 82 <SV = 52> <Delay = 7.00>
+ST_82 : Operation 473 [2/5] (7.00ns)   --->   "%port1_addr_7_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_5"   --->   Operation 473 'writeresp' 'port1_addr_7_wr_resp' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 83 <SV = 53> <Delay = 7.00>
+ST_83 : Operation 474 [1/5] (7.00ns)   --->   "%port1_addr_7_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_5"   --->   Operation 474 'writeresp' 'port1_addr_7_wr_resp' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_83 : Operation 475 [1/1] (0.00ns)   --->   "%br_ln0 = br void %.loopexit"   --->   Operation 475 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 84 <SV = 38> <Delay = 7.00>
+ST_84 : Operation 476 [1/1] (0.00ns)   --->   "%sext_ln324 = sext i30 %trunc_ln5"   --->   Operation 476 'sext' 'sext_ln324' <Predicate = true> <Delay = 0.00>
+ST_84 : Operation 477 [1/1] (0.00ns)   --->   "%port0_addr_2 = getelementptr i32 %port0, i32 %sext_ln324"   --->   Operation 477 'getelementptr' 'port0_addr_2' <Predicate = true> <Delay = 0.00>
+ST_84 : Operation 478 [7/7] (7.00ns)   --->   "%port0_addr_4_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_2, i32 153600"   --->   Operation 478 'readreq' 'port0_addr_4_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 85 <SV = 39> <Delay = 7.00>
+ST_85 : Operation 479 [6/7] (7.00ns)   --->   "%port0_addr_4_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_2, i32 153600"   --->   Operation 479 'readreq' 'port0_addr_4_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 86 <SV = 40> <Delay = 7.00>
+ST_86 : Operation 480 [5/7] (7.00ns)   --->   "%port0_addr_4_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_2, i32 153600"   --->   Operation 480 'readreq' 'port0_addr_4_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 87 <SV = 41> <Delay = 7.00>
+ST_87 : Operation 481 [4/7] (7.00ns)   --->   "%port0_addr_4_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_2, i32 153600"   --->   Operation 481 'readreq' 'port0_addr_4_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 88 <SV = 42> <Delay = 7.00>
+ST_88 : Operation 482 [3/7] (7.00ns)   --->   "%port0_addr_4_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_2, i32 153600"   --->   Operation 482 'readreq' 'port0_addr_4_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 89 <SV = 43> <Delay = 7.00>
+ST_89 : Operation 483 [1/1] (2.55ns)   --->   "%empty_102 = add i32 %port1_offset_read, i32 2457600"   --->   Operation 483 'add' 'empty_102' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_89 : Operation 484 [1/1] (0.00ns)   --->   "%trunc_ln96_1 = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %empty_102, i32 2, i32 31" [getPhaseMap2/getPhaseMap.cpp:96]   --->   Operation 484 'partselect' 'trunc_ln96_1' <Predicate = true> <Delay = 0.00>
+ST_89 : Operation 485 [2/7] (7.00ns)   --->   "%port0_addr_4_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_2, i32 153600"   --->   Operation 485 'readreq' 'port0_addr_4_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 90 <SV = 44> <Delay = 7.00>
+ST_90 : Operation 486 [1/1] (0.00ns)   --->   "%conv_i65 = zext i16 %amp_max_V" [getPhaseMap2/getPhaseMap.cpp:86]   --->   Operation 486 'zext' 'conv_i65' <Predicate = true> <Delay = 0.00>
+ST_90 : Operation 487 [1/1] (0.00ns)   --->   "%sext_ln329_3 = sext i30 %trunc_ln96_1"   --->   Operation 487 'sext' 'sext_ln329_3' <Predicate = true> <Delay = 0.00>
+ST_90 : Operation 488 [1/1] (0.00ns)   --->   "%port1_addr_4 = getelementptr i32 %port1, i32 %sext_ln329_3"   --->   Operation 488 'getelementptr' 'port1_addr_4' <Predicate = true> <Delay = 0.00>
+ST_90 : Operation 489 [1/7] (7.00ns)   --->   "%port0_addr_4_rd_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %port0_addr_2, i32 153600"   --->   Operation 489 'readreq' 'port0_addr_4_rd_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_90 : Operation 490 [1/1] (7.00ns)   --->   "%port1_addr_6_wr_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P1A, i32 %port1_addr_4, i32 76800"   --->   Operation 490 'writereq' 'port1_addr_6_wr_req' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_90 : Operation 491 [1/1] (1.58ns)   --->   "%br_ln96 = br void" [getPhaseMap2/getPhaseMap.cpp:96]   --->   Operation 491 'br' 'br_ln96' <Predicate = true> <Delay = 1.58>
+
+State 91 <SV = 45> <Delay = 2.44>
+ST_91 : Operation 492 [1/1] (0.00ns)   --->   "%i2 = phi i21 %add_ln104, void %.split11._crit_edge, i21 1228800, void" [getPhaseMap2/getPhaseMap.cpp:104]   --->   Operation 492 'phi' 'i2' <Predicate = true> <Delay = 0.00>
+ST_91 : Operation 493 [1/1] (2.44ns)   --->   "%icmp_ln96 = icmp_eq  i21 %i2, i21 1382400" [getPhaseMap2/getPhaseMap.cpp:96]   --->   Operation 493 'icmp' 'icmp_ln96' <Predicate = true> <Delay = 2.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_91 : Operation 494 [1/1] (0.00ns)   --->   "%br_ln96 = br i1 %icmp_ln96, void %.split11, void %.loopexit.loopexit3" [getPhaseMap2/getPhaseMap.cpp:96]   --->   Operation 494 'br' 'br_ln96' <Predicate = true> <Delay = 0.00>
+ST_91 : Operation 495 [1/1] (2.22ns)   --->   "%add_ln104 = add i21 %i2, i21 1" [getPhaseMap2/getPhaseMap.cpp:104]   --->   Operation 495 'add' 'add_ln104' <Predicate = (!icmp_ln96)> <Delay = 2.22> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 92 <SV = 46> <Delay = 7.00>
+ST_92 : Operation 496 [1/1] (7.00ns)   --->   "%port0_addr_2_read = read i32 @_ssdm_op_Read.m_axi.i32P1A, i32 %port0_addr_2"   --->   Operation 496 'read' 'port0_addr_2_read' <Predicate = (!icmp_ln96)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_92 : Operation 497 [1/1] (0.00ns)   --->   "%amp_1 = trunc i32 %port0_addr_2_read"   --->   Operation 497 'trunc' 'amp_1' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_92 : Operation 498 [1/1] (0.00ns)   --->   "%trunc_ln7 = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32.i32, i32 %port0_addr_2_read, i32 16, i32 31"   --->   Operation 498 'partselect' 'trunc_ln7' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+
+State 93 <SV = 47> <Delay = 2.31>
+ST_93 : Operation 499 [1/1] (0.00ns)   --->   "%zext_ln1345 = zext i16 %amp_1"   --->   Operation 499 'zext' 'zext_ln1345' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_93 : Operation 500 [1/1] (0.00ns)   --->   "%shl_ln1345_1 = bitconcatenate i24 @_ssdm_op_BitConcatenate.i24.i16.i8, i16 %amp_1, i8 0"   --->   Operation 500 'bitconcatenate' 'shl_ln1345_1' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_93 : Operation 501 [1/1] (0.00ns)   --->   "%zext_ln1345_1 = zext i24 %shl_ln1345_1"   --->   Operation 501 'zext' 'zext_ln1345_1' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_93 : Operation 502 [1/1] (2.31ns)   --->   "%ret_34 = sub i25 %zext_ln1345_1, i25 %zext_ln1345"   --->   Operation 502 'sub' 'ret_34' <Predicate = (!icmp_ln96)> <Delay = 2.31> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_93 : Operation 503 [1/1] (0.00ns)   --->   "%zext_ln1345_2 = zext i16 %trunc_ln7"   --->   Operation 503 'zext' 'zext_ln1345_2' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_93 : Operation 504 [1/1] (0.00ns)   --->   "%shl_ln1345_2 = bitconcatenate i24 @_ssdm_op_BitConcatenate.i24.i16.i8, i16 %trunc_ln7, i8 0"   --->   Operation 504 'bitconcatenate' 'shl_ln1345_2' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_93 : Operation 505 [1/1] (0.00ns)   --->   "%zext_ln1345_3 = zext i24 %shl_ln1345_2"   --->   Operation 505 'zext' 'zext_ln1345_3' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_93 : Operation 506 [1/1] (2.31ns)   --->   "%ret_36 = sub i25 %zext_ln1345_3, i25 %zext_ln1345_2"   --->   Operation 506 'sub' 'ret_36' <Predicate = (!icmp_ln96)> <Delay = 2.31> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 94 <SV = 48> <Delay = 4.75>
+ST_94 : Operation 507 [1/1] (0.00ns)   --->   "%sext_ln1345 = sext i25 %ret_34"   --->   Operation 507 'sext' 'sext_ln1345' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_94 : Operation 508 [52/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 508 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_94 : Operation 509 [1/1] (0.00ns)   --->   "%sext_ln1345_1 = sext i25 %ret_36"   --->   Operation 509 'sext' 'sext_ln1345_1' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_94 : Operation 510 [52/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 510 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 95 <SV = 49> <Delay = 4.75>
+ST_95 : Operation 511 [51/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 511 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_95 : Operation 512 [51/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 512 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 96 <SV = 50> <Delay = 4.75>
+ST_96 : Operation 513 [50/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 513 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_96 : Operation 514 [50/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 514 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 97 <SV = 51> <Delay = 4.75>
+ST_97 : Operation 515 [49/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 515 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_97 : Operation 516 [49/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 516 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 98 <SV = 52> <Delay = 4.75>
+ST_98 : Operation 517 [48/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 517 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_98 : Operation 518 [48/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 518 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 99 <SV = 53> <Delay = 4.75>
+ST_99 : Operation 519 [47/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 519 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_99 : Operation 520 [47/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 520 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 100 <SV = 54> <Delay = 4.75>
+ST_100 : Operation 521 [46/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 521 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_100 : Operation 522 [46/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 522 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 101 <SV = 55> <Delay = 4.75>
+ST_101 : Operation 523 [45/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 523 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_101 : Operation 524 [45/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 524 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 102 <SV = 56> <Delay = 4.75>
+ST_102 : Operation 525 [44/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 525 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_102 : Operation 526 [44/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 526 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 103 <SV = 57> <Delay = 4.75>
+ST_103 : Operation 527 [43/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 527 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_103 : Operation 528 [43/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 528 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 104 <SV = 58> <Delay = 4.75>
+ST_104 : Operation 529 [42/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 529 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_104 : Operation 530 [42/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 530 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 105 <SV = 59> <Delay = 4.75>
+ST_105 : Operation 531 [41/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 531 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_105 : Operation 532 [41/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 532 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 106 <SV = 60> <Delay = 4.75>
+ST_106 : Operation 533 [40/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 533 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_106 : Operation 534 [40/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 534 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 107 <SV = 61> <Delay = 4.75>
+ST_107 : Operation 535 [39/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 535 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_107 : Operation 536 [39/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 536 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 108 <SV = 62> <Delay = 4.75>
+ST_108 : Operation 537 [38/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 537 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_108 : Operation 538 [38/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 538 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 109 <SV = 63> <Delay = 4.75>
+ST_109 : Operation 539 [37/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 539 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_109 : Operation 540 [37/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 540 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 110 <SV = 64> <Delay = 4.75>
+ST_110 : Operation 541 [36/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 541 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_110 : Operation 542 [36/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 542 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 111 <SV = 65> <Delay = 4.75>
+ST_111 : Operation 543 [35/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 543 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_111 : Operation 544 [35/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 544 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 112 <SV = 66> <Delay = 4.75>
+ST_112 : Operation 545 [34/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 545 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_112 : Operation 546 [34/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 546 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 113 <SV = 67> <Delay = 4.75>
+ST_113 : Operation 547 [33/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 547 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_113 : Operation 548 [33/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 548 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 114 <SV = 68> <Delay = 4.75>
+ST_114 : Operation 549 [32/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 549 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_114 : Operation 550 [32/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 550 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 115 <SV = 69> <Delay = 4.75>
+ST_115 : Operation 551 [31/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 551 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_115 : Operation 552 [31/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 552 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 116 <SV = 70> <Delay = 4.75>
+ST_116 : Operation 553 [30/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 553 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_116 : Operation 554 [30/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 554 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 117 <SV = 71> <Delay = 4.75>
+ST_117 : Operation 555 [29/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 555 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_117 : Operation 556 [29/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 556 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 118 <SV = 72> <Delay = 4.75>
+ST_118 : Operation 557 [28/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 557 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_118 : Operation 558 [28/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 558 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 119 <SV = 73> <Delay = 4.75>
+ST_119 : Operation 559 [27/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 559 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_119 : Operation 560 [27/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 560 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 120 <SV = 74> <Delay = 4.75>
+ST_120 : Operation 561 [26/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 561 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_120 : Operation 562 [26/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 562 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 121 <SV = 75> <Delay = 4.75>
+ST_121 : Operation 563 [25/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 563 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_121 : Operation 564 [25/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 564 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 122 <SV = 76> <Delay = 4.75>
+ST_122 : Operation 565 [24/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 565 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_122 : Operation 566 [24/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 566 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 123 <SV = 77> <Delay = 4.75>
+ST_123 : Operation 567 [23/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 567 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_123 : Operation 568 [23/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 568 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 124 <SV = 78> <Delay = 4.75>
+ST_124 : Operation 569 [22/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 569 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_124 : Operation 570 [22/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 570 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 125 <SV = 79> <Delay = 4.75>
+ST_125 : Operation 571 [21/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 571 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_125 : Operation 572 [21/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 572 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 126 <SV = 80> <Delay = 4.75>
+ST_126 : Operation 573 [20/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 573 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_126 : Operation 574 [20/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 574 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 127 <SV = 81> <Delay = 4.75>
+ST_127 : Operation 575 [19/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 575 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_127 : Operation 576 [19/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 576 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 128 <SV = 82> <Delay = 4.75>
+ST_128 : Operation 577 [18/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 577 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_128 : Operation 578 [18/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 578 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 129 <SV = 83> <Delay = 4.75>
+ST_129 : Operation 579 [17/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 579 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_129 : Operation 580 [17/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 580 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 130 <SV = 84> <Delay = 4.75>
+ST_130 : Operation 581 [16/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 581 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_130 : Operation 582 [16/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 582 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 131 <SV = 85> <Delay = 4.75>
+ST_131 : Operation 583 [15/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 583 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_131 : Operation 584 [15/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 584 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 132 <SV = 86> <Delay = 4.75>
+ST_132 : Operation 585 [14/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 585 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_132 : Operation 586 [14/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 586 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 133 <SV = 87> <Delay = 4.75>
+ST_133 : Operation 587 [13/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 587 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_133 : Operation 588 [13/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 588 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 134 <SV = 88> <Delay = 4.75>
+ST_134 : Operation 589 [12/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 589 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_134 : Operation 590 [12/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 590 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 135 <SV = 89> <Delay = 4.75>
+ST_135 : Operation 591 [11/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 591 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_135 : Operation 592 [11/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 592 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 136 <SV = 90> <Delay = 4.75>
+ST_136 : Operation 593 [10/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 593 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_136 : Operation 594 [10/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 594 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 137 <SV = 91> <Delay = 4.75>
+ST_137 : Operation 595 [9/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 595 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_137 : Operation 596 [9/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 596 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 138 <SV = 92> <Delay = 4.75>
+ST_138 : Operation 597 [8/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 597 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_138 : Operation 598 [8/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 598 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 139 <SV = 93> <Delay = 4.75>
+ST_139 : Operation 599 [7/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 599 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_139 : Operation 600 [7/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 600 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 140 <SV = 94> <Delay = 4.75>
+ST_140 : Operation 601 [6/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 601 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_140 : Operation 602 [6/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 602 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 141 <SV = 95> <Delay = 4.75>
+ST_141 : Operation 603 [1/1] (0.00ns)   --->   "%phi_ln324 = phi i18 %add_ln96, void %.split11._crit_edge, i18 0, void"   --->   Operation 603 'phi' 'phi_ln324' <Predicate = true> <Delay = 0.00>
+ST_141 : Operation 604 [1/1] (0.00ns)   --->   "%phi_ln329_4 = phi i16 %phitmp_cast, void %.split11._crit_edge, i16 0, void"   --->   Operation 604 'phi' 'phi_ln329_4' <Predicate = true> <Delay = 0.00>
+ST_141 : Operation 605 [1/1] (2.13ns)   --->   "%add_ln96 = add i18 %phi_ln324, i18 1" [getPhaseMap2/getPhaseMap.cpp:96]   --->   Operation 605 'add' 'add_ln96' <Predicate = true> <Delay = 2.13> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_141 : Operation 606 [1/1] (0.00ns)   --->   "%empty_103 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 153600, i64 153600, i64 153600"   --->   Operation 606 'speclooptripcount' 'empty_103' <Predicate = true> <Delay = 0.00>
+ST_141 : Operation 607 [1/1] (0.00ns)   --->   "%trunc_ln96 = trunc i18 %phi_ln324" [getPhaseMap2/getPhaseMap.cpp:96]   --->   Operation 607 'trunc' 'trunc_ln96' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_141 : Operation 608 [5/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 608 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_141 : Operation 609 [5/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 609 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_141 : Operation 610 [1/1] (0.00ns)   --->   "%br_ln329 = br i1 %trunc_ln96, void %.split11._crit_edge, void"   --->   Operation 610 'br' 'br_ln329' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+
+State 142 <SV = 96> <Delay = 4.75>
+ST_142 : Operation 611 [4/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 611 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_142 : Operation 612 [4/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 612 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 143 <SV = 97> <Delay = 4.75>
+ST_143 : Operation 613 [3/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 613 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_143 : Operation 614 [3/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 614 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 144 <SV = 98> <Delay = 4.75>
+ST_144 : Operation 615 [2/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 615 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_144 : Operation 616 [2/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 616 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 145 <SV = 99> <Delay = 6.83>
+ST_145 : Operation 617 [1/52] (4.75ns)   --->   "%ret_35 = udiv i48 %sext_ln1345, i48 %conv_i65"   --->   Operation 617 'udiv' 'ret_35' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_145 : Operation 618 [1/1] (0.00ns)   --->   "%amp_scaled_V = trunc i16 %ret_35"   --->   Operation 618 'trunc' 'amp_scaled_V' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_145 : Operation 619 [1/52] (4.75ns)   --->   "%ret_37 = udiv i48 %sext_ln1345_1, i48 %conv_i65"   --->   Operation 619 'udiv' 'ret_37' <Predicate = (!icmp_ln96)> <Delay = 4.75> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 51> <II = 1> <Delay = 4.75> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_145 : Operation 620 [1/1] (0.00ns)   --->   "%trunc_ln1497 = trunc i8 %ret_37"   --->   Operation 620 'trunc' 'trunc_ln1497' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_145 : Operation 621 [1/1] (0.00ns)   --->   "%r = bitconcatenate i16 @_ssdm_op_BitConcatenate.i16.i8.i8, i8 %trunc_ln1497, i8 0"   --->   Operation 621 'bitconcatenate' 'r' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_145 : Operation 622 [1/1] (2.07ns)   --->   "%amp_8x2_V = add i16 %r, i16 %amp_scaled_V"   --->   Operation 622 'add' 'amp_8x2_V' <Predicate = (!icmp_ln96)> <Delay = 2.07> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 146 <SV = 100> <Delay = 7.00>
+ST_146 : Operation 623 [1/1] (0.00ns)   --->   "%specpipeline_ln94 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [getPhaseMap2/getPhaseMap.cpp:94]   --->   Operation 623 'specpipeline' 'specpipeline_ln94' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_146 : Operation 624 [1/1] (0.00ns)   --->   "%specloopname_ln94 = specloopname void @_ssdm_op_SpecLoopName, void @empty_15" [getPhaseMap2/getPhaseMap.cpp:94]   --->   Operation 624 'specloopname' 'specloopname_ln94' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_146 : Operation 625 [1/1] (0.00ns)   --->   "%or_ln329_3 = bitconcatenate i32 @_ssdm_op_BitConcatenate.i32.i16.i16, i16 %amp_8x2_V, i16 %phi_ln329_4"   --->   Operation 625 'bitconcatenate' 'or_ln329_3' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+ST_146 : Operation 626 [1/1] (7.00ns)   --->   "%write_ln329 = write void @_ssdm_op_Write.m_axi.i32P1A, i32 %port1_addr_4, i32 %or_ln329_3, i4 15"   --->   Operation 626 'write' 'write_ln329' <Predicate = (trunc_ln96)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_146 : Operation 627 [1/1] (0.00ns)   --->   "%br_ln329 = br void %.split11._crit_edge"   --->   Operation 627 'br' 'br_ln329' <Predicate = (trunc_ln96)> <Delay = 0.00>
+ST_146 : Operation 628 [1/1] (0.80ns)   --->   "%phitmp_cast = select i1 %trunc_ln96, i16 0, i16 %amp_8x2_V" [getPhaseMap2/getPhaseMap.cpp:96]   --->   Operation 628 'select' 'phitmp_cast' <Predicate = (!icmp_ln96)> <Delay = 0.80> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_146 : Operation 629 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 629 'br' 'br_ln0' <Predicate = (!icmp_ln96)> <Delay = 0.00>
+
+State 147 <SV = 96> <Delay = 7.00>
+ST_147 : Operation 630 [5/5] (7.00ns)   --->   "%port1_addr_6_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_4"   --->   Operation 630 'writeresp' 'port1_addr_6_wr_resp' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 148 <SV = 97> <Delay = 7.00>
+ST_148 : Operation 631 [4/5] (7.00ns)   --->   "%port1_addr_6_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_4"   --->   Operation 631 'writeresp' 'port1_addr_6_wr_resp' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 149 <SV = 98> <Delay = 7.00>
+ST_149 : Operation 632 [3/5] (7.00ns)   --->   "%port1_addr_6_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_4"   --->   Operation 632 'writeresp' 'port1_addr_6_wr_resp' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 150 <SV = 99> <Delay = 7.00>
+ST_150 : Operation 633 [2/5] (7.00ns)   --->   "%port1_addr_6_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_4"   --->   Operation 633 'writeresp' 'port1_addr_6_wr_resp' <Predicate = true> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 151 <SV = 100> <Delay = 7.00>
+ST_151 : Operation 634 [1/5] (7.00ns)   --->   "%port1_addr_6_wr_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P1A, i32 %port1_addr_4"   --->   Operation 634 'writeresp' 'port1_addr_6_wr_resp' <Predicate = (and_ln93)> <Delay = 7.00> <CoreInst = "m_axi">   --->   Core 113 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_151 : Operation 635 [1/1] (0.00ns)   --->   "%br_ln0 = br void %.loopexit"   --->   Operation 635 'br' 'br_ln0' <Predicate = (and_ln93)> <Delay = 0.00>
+ST_151 : Operation 636 [1/1] (0.00ns)   --->   "%ret_ln129 = ret" [getPhaseMap2/getPhaseMap.cpp:129]   --->   Operation 636 'ret' 'ret_ln129' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 8ns, clock uncertainty: 1ns.
+
+ <State 1>: 1ns
+The critical path consists of the following:
+	s_axi read on port 'port1_offset' [7]  (1 ns)
+
+ <State 2>: 1ns
+The critical path consists of the following:
+	s_axi read on port 'port1_offset' [7]  (1 ns)
+
+ <State 3>: 7ns
+The critical path consists of the following:
+	'getelementptr' operation ('port1_addr', getPhaseMap2/getPhaseMap.cpp:40) [28]  (0 ns)
+	bus request on port 'port1' (getPhaseMap2/getPhaseMap.cpp:40) [29]  (7 ns)
+
+ <State 4>: 2.44ns
+The critical path consists of the following:
+	'phi' operation ('i', getPhaseMap2/getPhaseMap.cpp:40) with incoming values : ('add_ln40', getPhaseMap2/getPhaseMap.cpp:40) [32]  (0 ns)
+	'icmp' operation ('icmp_ln40', getPhaseMap2/getPhaseMap.cpp:40) [36]  (2.44 ns)
+
+ <State 5>: 7ns
+The critical path consists of the following:
+	bus write on port 'port1' [49]  (7 ns)
+
+ <State 6>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:38) [55]  (7 ns)
+
+ <State 7>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:38) [55]  (7 ns)
+
+ <State 8>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:38) [55]  (7 ns)
+
+ <State 9>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:38) [55]  (7 ns)
+
+ <State 10>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:38) [55]  (7 ns)
+
+ <State 11>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' (getPhaseMap2/getPhaseMap.cpp:46) [60]  (7 ns)
+
+ <State 12>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' (getPhaseMap2/getPhaseMap.cpp:46) [60]  (7 ns)
+
+ <State 13>: 2.44ns
+The critical path consists of the following:
+	'phi' operation ('i', getPhaseMap2/getPhaseMap.cpp:46) with incoming values : ('add_ln46', getPhaseMap2/getPhaseMap.cpp:46) [69]  (0 ns)
+	'icmp' operation ('icmp_ln46', getPhaseMap2/getPhaseMap.cpp:46) [74]  (2.44 ns)
+
+ <State 14>: 7ns
+The critical path consists of the following:
+	bus read on port 'port0' [86]  (7 ns)
+
+ <State 15>: 4.53ns
+The critical path consists of the following:
+	'phi' operation ('shiftreg472') with incoming values : ('trunc_ln4') [70]  (0 ns)
+	multiplexor before 'phi' operation ('empty_87') with incoming values : ('zext_ln46', getPhaseMap2/getPhaseMap.cpp:46) ('port0_addr_read') [89]  (1.59 ns)
+	'phi' operation ('empty_87') with incoming values : ('zext_ln46', getPhaseMap2/getPhaseMap.cpp:46) ('port0_addr_read') [89]  (0 ns)
+	'sub' operation ('ret') [94]  (1.55 ns)
+	'select' operation ('L1_result.V', getPhaseMap2/getPhaseMap.cpp:51) [95]  (0.7 ns)
+	'select' operation ('phitmp13_cast', getPhaseMap2/getPhaseMap.cpp:46) [104]  (0.7 ns)
+
+ <State 16>: 7ns
+The critical path consists of the following:
+	bus write on port 'port1' [100]  (7 ns)
+
+ <State 17>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [108]  (7 ns)
+
+ <State 18>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [108]  (7 ns)
+
+ <State 19>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [108]  (7 ns)
+
+ <State 20>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [108]  (7 ns)
+
+ <State 21>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [108]  (7 ns)
+
+ <State 22>: 2.44ns
+The critical path consists of the following:
+	'phi' operation ('i', getPhaseMap2/getPhaseMap.cpp:59) with incoming values : ('add_ln59', getPhaseMap2/getPhaseMap.cpp:59) [117]  (0 ns)
+	'icmp' operation ('icmp_ln59', getPhaseMap2/getPhaseMap.cpp:59) [121]  (2.44 ns)
+
+ <State 23>: 7ns
+The critical path consists of the following:
+	bus write on port 'port1' [134]  (7 ns)
+
+ <State 24>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:33) [142]  (7 ns)
+
+ <State 25>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:33) [142]  (7 ns)
+
+ <State 26>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:33) [142]  (7 ns)
+
+ <State 27>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:33) [142]  (7 ns)
+
+ <State 28>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:33) [142]  (7 ns)
+
+ <State 29>: 7ns
+The critical path consists of the following:
+	'getelementptr' operation ('port0_addr_1', getPhaseMap2/getPhaseMap.cpp:67) [147]  (0 ns)
+	bus request on port 'port0' (getPhaseMap2/getPhaseMap.cpp:67) [148]  (7 ns)
+
+ <State 30>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' (getPhaseMap2/getPhaseMap.cpp:67) [148]  (7 ns)
+
+ <State 31>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' (getPhaseMap2/getPhaseMap.cpp:67) [148]  (7 ns)
+
+ <State 32>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' (getPhaseMap2/getPhaseMap.cpp:67) [148]  (7 ns)
+
+ <State 33>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' (getPhaseMap2/getPhaseMap.cpp:67) [148]  (7 ns)
+
+ <State 34>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' (getPhaseMap2/getPhaseMap.cpp:67) [148]  (7 ns)
+
+ <State 35>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' (getPhaseMap2/getPhaseMap.cpp:67) [148]  (7 ns)
+
+ <State 36>: 2.44ns
+The critical path consists of the following:
+	'phi' operation ('i', getPhaseMap2/getPhaseMap.cpp:67) with incoming values : ('add_ln67', getPhaseMap2/getPhaseMap.cpp:67) [158]  (0 ns)
+	'icmp' operation ('icmp_ln67', getPhaseMap2/getPhaseMap.cpp:67) [164]  (2.44 ns)
+
+ <State 37>: 7ns
+The critical path consists of the following:
+	bus read on port 'port0' [177]  (7 ns)
+
+ <State 38>: 1.59ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('p_in') with incoming values : ('zext_ln67_1', getPhaseMap2/getPhaseMap.cpp:67) ('port0_addr_1_read') [181]  (1.59 ns)
+	'phi' operation ('p_in') with incoming values : ('zext_ln67_1', getPhaseMap2/getPhaseMap.cpp:67) ('port0_addr_1_read') [181]  (0 ns)
+
+ <State 39>: 6.71ns
+The critical path consists of the following:
+	'sub' operation ('ret') [189]  (1.55 ns)
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (5.16 ns)
+
+ <State 40>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 41>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 42>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 43>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 44>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 45>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 46>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 47>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 48>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 49>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 50>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 51>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 52>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 53>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 54>: 7ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (7 ns)
+
+ <State 55>: 5.61ns
+The critical path consists of the following:
+	'call' operation ('phase.V', E:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\hls_math.h:1869) to 'generic_atan2<16, 3>' [192]  (0.978 ns)
+	'add' operation ('phase.V') [193]  (2.08 ns)
+	'sub' operation ('ret') [197]  (2.55 ns)
+
+ <State 56>: 5.66ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln1364') [200]  (5.66 ns)
+
+ <State 57>: 5.66ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln1364') [200]  (5.66 ns)
+
+ <State 58>: 5.66ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln1364') [200]  (5.66 ns)
+
+ <State 59>: 5.66ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln1364') [200]  (5.66 ns)
+
+ <State 60>: 5.66ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln1364') [200]  (5.66 ns)
+
+ <State 61>: 2.08ns
+The critical path consists of the following:
+	'add' operation ('phaseInt.V') [202]  (2.08 ns)
+
+ <State 62>: 7ns
+The critical path consists of the following:
+	'phi' operation ('L3_result.V') with incoming values : ('phaseInt.V') ('L3_result.V', getPhaseMap2/getPhaseMap.cpp:152) ('sext_ln213') [221]  (0 ns)
+	bus write on port 'port1' [227]  (7 ns)
+
+ <State 63>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:93) [234]  (7 ns)
+
+ <State 64>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:93) [234]  (7 ns)
+
+ <State 65>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:93) [234]  (7 ns)
+
+ <State 66>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:93) [234]  (7 ns)
+
+ <State 67>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' (getPhaseMap2/getPhaseMap.cpp:93) [234]  (7 ns)
+
+ <State 68>: 7ns
+The critical path consists of the following:
+	'getelementptr' operation ('port0_addr_3') [248]  (0 ns)
+	bus request on port 'port0' [250]  (7 ns)
+
+ <State 69>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [250]  (7 ns)
+
+ <State 70>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [250]  (7 ns)
+
+ <State 71>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [250]  (7 ns)
+
+ <State 72>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [250]  (7 ns)
+
+ <State 73>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [250]  (7 ns)
+
+ <State 74>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [250]  (7 ns)
+
+ <State 75>: 2.44ns
+The critical path consists of the following:
+	'phi' operation ('i2', getPhaseMap2/getPhaseMap.cpp:115) with incoming values : ('add_ln115', getPhaseMap2/getPhaseMap.cpp:115) [255]  (0 ns)
+	'icmp' operation ('icmp_ln109', getPhaseMap2/getPhaseMap.cpp:109) [258]  (2.44 ns)
+
+ <State 76>: 7ns
+The critical path consists of the following:
+	bus read on port 'port0' [265]  (7 ns)
+
+ <State 77>: 2.14ns
+The critical path consists of the following:
+	'phi' operation ('phi_ln324_1') with incoming values : ('add_ln109', getPhaseMap2/getPhaseMap.cpp:109) [254]  (0 ns)
+	'add' operation ('add_ln109', getPhaseMap2/getPhaseMap.cpp:109) [257]  (2.14 ns)
+
+ <State 78>: 7ns
+The critical path consists of the following:
+	'phi' operation ('phi_ln329_5') with incoming values : ('phitmp2_cast', getPhaseMap2/getPhaseMap.cpp:109) [256]  (0 ns)
+	bus write on port 'port1' [273]  (7 ns)
+
+ <State 79>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [280]  (7 ns)
+
+ <State 80>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [280]  (7 ns)
+
+ <State 81>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [280]  (7 ns)
+
+ <State 82>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [280]  (7 ns)
+
+ <State 83>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [280]  (7 ns)
+
+ <State 84>: 7ns
+The critical path consists of the following:
+	'getelementptr' operation ('port0_addr_2') [290]  (0 ns)
+	bus request on port 'port0' [292]  (7 ns)
+
+ <State 85>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [292]  (7 ns)
+
+ <State 86>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [292]  (7 ns)
+
+ <State 87>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [292]  (7 ns)
+
+ <State 88>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [292]  (7 ns)
+
+ <State 89>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [292]  (7 ns)
+
+ <State 90>: 7ns
+The critical path consists of the following:
+	bus request on port 'port0' [292]  (7 ns)
+
+ <State 91>: 2.44ns
+The critical path consists of the following:
+	'phi' operation ('i2', getPhaseMap2/getPhaseMap.cpp:104) with incoming values : ('add_ln104', getPhaseMap2/getPhaseMap.cpp:104) [297]  (0 ns)
+	'icmp' operation ('icmp_ln96', getPhaseMap2/getPhaseMap.cpp:96) [300]  (2.44 ns)
+
+ <State 92>: 7ns
+The critical path consists of the following:
+	bus read on port 'port0' [307]  (7 ns)
+
+ <State 93>: 2.31ns
+The critical path consists of the following:
+	'sub' operation ('ret') [312]  (2.31 ns)
+
+ <State 94>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 95>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 96>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 97>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 98>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 99>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 100>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 101>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 102>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 103>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 104>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 105>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 106>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 107>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 108>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 109>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 110>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 111>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 112>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 113>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 114>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 115>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 116>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 117>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 118>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 119>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 120>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 121>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 122>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 123>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 124>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 125>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 126>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 127>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 128>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 129>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 130>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 131>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 132>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 133>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 134>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 135>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 136>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 137>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 138>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 139>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 140>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 141>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 142>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 143>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 144>: 4.76ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+
+ <State 145>: 6.83ns
+The critical path consists of the following:
+	'udiv' operation ('ret') [314]  (4.76 ns)
+	'add' operation ('amp_8x2.V') [325]  (2.08 ns)
+
+ <State 146>: 7ns
+The critical path consists of the following:
+	bus write on port 'port1' [329]  (7 ns)
+
+ <State 147>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [336]  (7 ns)
+
+ <State 148>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [336]  (7 ns)
+
+ <State 149>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [336]  (7 ns)
+
+ <State 150>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [336]  (7 ns)
+
+ <State 151>: 7ns
+The critical path consists of the following:
+	bus response on port 'port1' [336]  (7 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+	State 89
+	State 90
+	State 91
+	State 92
+	State 93
+	State 94
+	State 95
+	State 96
+	State 97
+	State 98
+	State 99
+	State 100
+	State 101
+	State 102
+	State 103
+	State 104
+	State 105
+	State 106
+	State 107
+	State 108
+	State 109
+	State 110
+	State 111
+	State 112
+	State 113
+	State 114
+	State 115
+	State 116
+	State 117
+	State 118
+	State 119
+	State 120
+	State 121
+	State 122
+	State 123
+	State 124
+	State 125
+	State 126
+	State 127
+	State 128
+	State 129
+	State 130
+	State 131
+	State 132
+	State 133
+	State 134
+	State 135
+	State 136
+	State 137
+	State 138
+	State 139
+	State 140
+	State 141
+	State 142
+	State 143
+	State 144
+	State 145
+	State 146
+	State 147
+	State 148
+	State 149
+	State 150
+	State 151
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

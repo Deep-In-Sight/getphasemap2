@@ -1,0 +1,11 @@
+getPhaseMap2_mul_48ns_50ns_80_1_1
+getPhaseMap2_udiv_48s_16ns_16_52_1
+getPhaseMap2_mul_mul_16s_16s_32_4_1
+getPhaseMap2_mac_muladd_13s_13s_32s_32_4_1
+getPhaseMap2_control_s_axi
+getPhaseMap2_port0_m_axi
+getPhaseMap2_port1_m_axi
+getPhaseMap2_regslice_both
+generic_atan2_16_3_s
+sqrt_fixed_32_32_s
+getPhaseMap2

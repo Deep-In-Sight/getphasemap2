@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="getPhaseMap.h" path="D:\workspace\vitis_hls\getPhaseMap2\getPhaseMap.h"/>
+    <originFiles name="getPhaseMap.cpp" path="D:\workspace\vitis_hls\getPhaseMap2\getPhaseMap.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="test_getPhaseMap.cpp" path="D:\workspace\vitis_hls\getPhaseMap2\test_getPhaseMap.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

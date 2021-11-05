@@ -1,0 +1,5 @@
+solution*/sim
+solution*/csim
+solution*/syn
+solution*/impl
+.vitis_hls_log_all.xml

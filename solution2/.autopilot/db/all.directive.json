@@ -1,0 +1,29 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "getPhaseMap2",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "getPhaseMap2"
+              }]
+          }
+        },
+        {
+          "functionName": "getPhaseMap2",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "getPhaseMap2"
+              }]
+          }
+        }
+      ]
+    }]}
