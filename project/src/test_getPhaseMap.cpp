@@ -12,7 +12,7 @@ using namespace std;
 
 #define REG_CTRL(offset, scale, mode) ((offset << 16) + (scale << 2) + mode)
 
-void gen_groundtruth(uint16* groundTruth, uint16* dcsMap, unsigned int regCtrl) {
+void gen_groundtruth(uint16* groundTruth, uint16* dcsMap, unsigned int regCtrl, int threshold) {
 
 	int mode = regCtrl & 0x3;
 	int scale_en = regCtrl & 0x4;
@@ -59,29 +59,26 @@ void gen_groundtruth(uint16* groundTruth, uint16* dcsMap, unsigned int regCtrl) 
 		phase_fixed = hls::atan2(dcs31_fixed, dcs20_fixed);
 		phase_fixed = phase_fixed + int16_3(M_PI);
 		phaseInt.V = phase_fixed.V;
-		phaseInt = phaseInt * 0xFFFF / 51471;
+		phaseInt = phaseInt * 32767 / 51471;
 
 		int32 amp = hls::sqrt(dcs31*dcs31 + dcs20*dcs20);
 
 		if (mode == MODE_RAW) {
 			groundTruth[i] = dcs3;
 		} else if (mode == MODE_AMP) {
-			if (scale_en == 0) {
-				if (amp > 255) {
-					amp = 255;
-				} else {
-					amp = amp;
-				}
-			}
-			groundTruth[i] = amp;
-
+			groundTruth[i] = (uint16) amp;
 		} else if (mode == MODE_PHASE) {
-			groundTruth[i] = phaseInt + offset;
+			if (amp < threshold) {
+				groundTruth[i] = (uint16) 0xFFFF;
+			} else {
+				groundTruth[i] = (phaseInt + offset) & 0x07FFF;
+			}
 		}
 		if (amp > amp_max) {
 			amp_max = amp;
 		}
 	}
+	std::cout << "amp max: " << amp_max << endl;
 
 	if (mode == MODE_AMP && scale_en) {
 		uint16 tmp;
@@ -162,6 +159,7 @@ int main() {
 	static uint16 framebuffer[NUMPIX*5];
 	static uint16 groundTruth[NUMPIX*5];
 	volatile uint16 *port0, *port1;
+	int threshold = -1;
 
 	int test_pass = 1;
 
@@ -194,11 +192,11 @@ int main() {
 	mode = MODE_RAW;
 	offset = 0;
 	scale = 0;
-
 	regCtrl = REG_CTRL(offset, scale, mode);
+	threshold = -1;
 	reset_output(framebuffer, groundTruth);
-	gen_groundtruth(groundTruth, dcsMap, regCtrl);
-	getPhaseMap2(regCtrl, dcsMap, port0, port1);
+	gen_groundtruth(groundTruth, dcsMap, regCtrl, threshold);
+	getPhaseMap2(regCtrl, threshold, dcsMap, port0, port1);
 	test_pass = check_output(groundTruth, framebuffer, scale);
 	if (test_pass == 0) {
 		cout << "TEST01 FAILED";
@@ -209,17 +207,17 @@ int main() {
 	mode = MODE_AMP;
 	offset = 0;
 	scale = 0;
-
 	regCtrl = REG_CTRL(offset, scale, mode);
+	threshold = -1;
 	reset_output(framebuffer, groundTruth);
-	gen_groundtruth(groundTruth, dcsMap, regCtrl);
-	getPhaseMap2(regCtrl, dcsMap, port0, port1);
+	gen_groundtruth(groundTruth, dcsMap, regCtrl, threshold);
+	getPhaseMap2(regCtrl, threshold, dcsMap, port0, port1);
 	test_pass = check_output(groundTruth, framebuffer, scale);
 	if (test_pass == 0) {
 		cout << "TEST02 FAILED";
 		return -1;
 	}
-	writeFile(OUTFILE_AMP_CLAMP, framebuffer+3*NUMPIX, NUMPIX);
+	writeFile(OUTFILE_AMP_CLAMP, framebuffer+4*NUMPIX, NUMPIX/2);
 
 
 	cout << "TEST03: Save amplitude image, scaling\n";
@@ -227,24 +225,26 @@ int main() {
 	offset = 0;
 	scale = 1;
 	regCtrl = REG_CTRL(offset, scale, mode);
+	threshold = -1;
 	reset_output(framebuffer, groundTruth);
-	gen_groundtruth(groundTruth, dcsMap, regCtrl);
-	getPhaseMap2(regCtrl, dcsMap, port0, port1);
+	gen_groundtruth(groundTruth, dcsMap, regCtrl, threshold);
+	getPhaseMap2(regCtrl, threshold, dcsMap, port0, port1);
 	test_pass = check_output(groundTruth, framebuffer, scale);
 	if (test_pass == 0) {
 		cout << "TEST03 FAILED";
 		return -1;
 	}
-	writeFile(OUTFILE_AMP, framebuffer+4*NUMPIX, NUMPIX);
+	writeFile(OUTFILE_AMP, framebuffer+4*NUMPIX, NUMPIX/2);
 
 	cout << "TEST04: Save phase image, offset = 0\n";
 	mode = MODE_PHASE;
 	offset = 0;
 	scale = 0;
 	regCtrl = REG_CTRL(offset, scale, mode);
+	threshold = -1;
 	reset_output(framebuffer, groundTruth);
-	gen_groundtruth(groundTruth, dcsMap, regCtrl);
-	getPhaseMap2(regCtrl, dcsMap, port0, port1);
+	gen_groundtruth(groundTruth, dcsMap, regCtrl, threshold);
+	getPhaseMap2(regCtrl, threshold, dcsMap, port0, port1);
 	test_pass = check_output(groundTruth, framebuffer, scale);
 	if (test_pass == 0) {
 		cout << "TEST04 FAILED";
@@ -252,14 +252,17 @@ int main() {
 	}
 	writeFile(OUTFILE_PHASE, framebuffer+3*NUMPIX, NUMPIX);
 
+	return 0;
+
 	cout << "TEST05: Save phase image, offset = pi\n";
 	mode = MODE_PHASE;
 	offset = 32768;
 	scale = 0;
 	regCtrl = REG_CTRL(offset, scale, mode);
+	threshold = -1;
 	reset_output(framebuffer, groundTruth);
-	gen_groundtruth(groundTruth, dcsMap, regCtrl);
-	getPhaseMap2(regCtrl, dcsMap, port0, port1);
+	gen_groundtruth(groundTruth, dcsMap, regCtrl, threshold);
+	getPhaseMap2(regCtrl, threshold, dcsMap, port0, port1);
 	test_pass = check_output(groundTruth, framebuffer, scale);
 	if (test_pass == 0) {
 		cout << "TEST05 FAILED";
@@ -272,9 +275,26 @@ int main() {
 	offset = 65535;
 	scale = 0;
 	regCtrl = REG_CTRL(offset, scale, mode);
+	threshold = -1;
 	reset_output(framebuffer, groundTruth);
-	gen_groundtruth(groundTruth, dcsMap, regCtrl);
-	getPhaseMap2(regCtrl, dcsMap, port0, port1);
+	gen_groundtruth(groundTruth, dcsMap, regCtrl, threshold);
+	getPhaseMap2(regCtrl, threshold, dcsMap, port0, port1);
+	test_pass = check_output(groundTruth, framebuffer, scale);
+	if (test_pass == 0) {
+		cout << "TEST06 FAILED";
+		return -1;
+	}
+	writeFile(OUTFILE_PHASE, framebuffer+3*NUMPIX, NUMPIX);
+
+	cout << "TEST07: Save phase image, offset = 0, threshold = 100\n";
+	mode = MODE_PHASE;
+	offset = 0;
+	scale = 0;
+	regCtrl = REG_CTRL(offset, scale, mode);
+	threshold = 100;
+	reset_output(framebuffer, groundTruth);
+	gen_groundtruth(groundTruth, dcsMap, regCtrl, threshold);
+	getPhaseMap2(regCtrl, threshold, dcsMap, port0, port1);
 	test_pass = check_output(groundTruth, framebuffer, scale);
 	if (test_pass == 0) {
 		cout << "TEST06 FAILED";

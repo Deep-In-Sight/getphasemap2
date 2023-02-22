@@ -1,4 +1,8 @@
 project/solution*
 project/hls.app
+project/.project
+project/.cproject
+project/.apc
+project/.settings
+project/.*.xml
 vitis_hls.log
-

@@ -60,6 +60,6 @@ enum TOF_MODE {
 	MODE_NUM
 };
 
-void getPhaseMap2(unsigned int regCtrl, volatile uint16* dcs_in, volatile uint16* port0, volatile uint16* port1);
+void getPhaseMap2(unsigned int regCtrl, int threshold, volatile uint16* dcs_in, volatile uint16* port0, volatile uint16* port1);
 
 #endif
